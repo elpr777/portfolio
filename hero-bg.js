@@ -10,8 +10,7 @@
     var ctx = cv.getContext("2d", { alpha: false }); if (!ctx) return;
     var hero = cv.parentNode, W = 0, H = 0, cs = 16, nx = 0, ny = 0, F = null, raf = 0, vis = true, t = 0;
     var tx = -9999, ty = -9999, px = -9999, py = -9999, pw = 0, ripples = [];
-    var ground = "#D4FF3A";
-    try { var g = getComputedStyle(hero).backgroundColor; if (g) ground = g; } catch (e) {}
+    var ground = "#D4FF3A"; // fixed: a computed colour can be altered by browser force-dark
     var LV = [], STEP = .34, i0;
     for (i0 = -9; i0 <= 9; i0++) LV.push(i0 * STEP);
     function size() {
@@ -70,6 +69,10 @@
         }
         ctx.lineWidth = major ? 1.5 : .8; ctx.strokeStyle = major ? "rgba(10,10,10,.92)" : "rgba(10,10,10,.5)"; ctx.stroke();
       }
+      // soft lemon halo behind the copy so the lines never fight the text
+      var gr = ctx.createRadialGradient(W * .5, H * .46, 0, W * .5, H * .46, Math.max(W * .55, H * .5));
+      gr.addColorStop(0, "rgba(212,255,58,.88)"); gr.addColorStop(.55, "rgba(212,255,58,.6)"); gr.addColorStop(1, "rgba(212,255,58,0)");
+      ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H);
     }
     function frame() {
       raf = 0; if (!cv.isConnected) return;

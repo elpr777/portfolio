@@ -245,7 +245,7 @@ html.nos{overflow:hidden}
 
 /* hero v4: centered sales copy, contour-line creative-code ground, status docked at the bottom */
 .hero3{min-height:clamp(560px,88svh,780px);display:flex;align-items:center;justify-content:center}
-.hero3 .hbg{-webkit-mask-image:radial-gradient(ellipse 62% 48% at 50% 46%,rgba(0,0,0,.14),#000 78%);mask-image:radial-gradient(ellipse 62% 48% at 50% 46%,rgba(0,0,0,.14),#000 78%)}
+.hero3 .hbg{}
 .hero3 .pitch{position:relative;inset:auto;transform:none;max-inline-size:56rem;margin:0 auto;padding:6.2rem var(--g) 5.6rem;text-align:center;align-items:center;gap:1.1rem}
 .hl{font-size:clamp(2.3rem,9vw,5.4rem);line-height:1.08}
 [lang=ar] .hl{line-height:1.2}
@@ -274,3 +274,11 @@ html.nos{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.ind{overflow-x:auto}.ind ul{animation:none}}
 .ind{padding-block:0}
 @media(max-width:620px){.hero3 .mt{gap:.55rem 1.2rem;font-size:.62rem;letter-spacing:.03em}}
+
+/* Browser "dark mode for websites" (Samsung Internet, Android force-dark) recolours CSS colours but not images.
+   So the lemon ground and the black text are painted as gradients, not as colours. */
+.hero3,.ind{background-color:#D4FF3A}
+.ind{position:relative}.ind .ibg{position:absolute;inset:0;inline-size:100%;block-size:100%;z-index:0;pointer-events:none}.ind ul{position:relative;z-index:1}
+.hero3 .hl,.hero3 .mt>span:not(.stat),.hero3 .mt .stat>span,.ind li,.top.over .logo span,.top.over nav a,.top.over .tg button{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#0A0A0A,#0A0A0A);-webkit-background-clip:text;background-clip:text}
+.hero3 .sb{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.85));-webkit-background-clip:text;background-clip:text}
+.hero3 .mt .stat{-webkit-text-fill-color:initial}
