@@ -350,3 +350,7 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 [data-theme=dark] .ind,[data-theme=dark] .ind{border-block-color:rgba(255,255,255,.2)}
 [data-theme=dark] .ind li{background-image:linear-gradient(#F4F4F0,#F4F4F0)}
 [data-theme=dark] .ind li::after{border-color:#F4F4F0}
+
+/* v7: strip flush under the hero, no margin, no padding */
+.indw{margin:0;padding:0}
+.ind{margin:0}
