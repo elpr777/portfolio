@@ -7,19 +7,6 @@ window.D = (() => {
     bio: 'https://bio.site/muhammadsayed',
     linkedin: 'https://www.linkedin.com/in/muhammadibnsayed/'          // full https URL (shown when set)
   };
-  const STEPS = [
-    ['research', A('بحث', 'Research'), A('بنفهم السوق والعميل والمنافسين قبل أي خط.', 'Market, users and competitors, before any line is drawn.')],
-    ['uxw', A('كتابة UX', 'UX writing'), A('كلام واضح بيقود المستخدم لقرار.', 'Clear words that lead a visitor to a decision.')],
-    ['flow', A('رحلة المستخدم', 'User flows'), A('أقصر طريق من أول زيارة لأول طلب.', 'The shortest path from first visit to first enquiry.')],
-    ['map', A('خريطة الموقع', 'Site map'), A('هيكل صفحات منطقي يتفهم من أول نظرة.', 'A page structure that makes sense at a glance.')],
-    ['wire', A('وايرفريم', 'Wireframes'), A('ترتيب المحتوى قبل الألوان.', 'Content hierarchy before colour.')],
-    ['ui', A('تصميم UI', 'UI design'), A('هوية بصرية نظيفة على أحدث Material وApple.', 'A clean visual system on current Material and Apple guidelines.')],
-    ['proto', A('برووتايب', 'Prototype'), A('نجرّبه بإيدينا قبل ما نبنيه.', 'Click it through before we build it.')],
-    ['motion', A('حركة وتفاعل', 'Interaction'), A('حركة بتشرح مش بتزيّن.', 'Motion that explains, not decorates.')],
-    ['seo', A('SEO وAEO', 'SEO · AEO'), A('يتلاقي في جوجل ويتذكر في إجابات الذكاء الاصطناعي.', 'Found on Google, cited in AI answers.')],
-    ['dev', A('تطوير', 'Development'), A('كود نضيف وآمن وخفيف، على ووردبريس أو فريمر أو كود مخصص.', 'Clean, secure, light code: WordPress, Framer or custom.')],
-    ['test', A('اختبار', 'Testing'), A('موبايل وتابلت وديسكتوب، عربي وإنجليزي، فاتح وداكن.', 'Mobile, tablet, desktop, Arabic and English, light and dark.')]
-  ];
   const T = [
     { n: "Ahmed Kafafy", r: "Cosmetics Marketing & Business Development Expert", d: "Mar 2022", q: "Muhammad is a true dedicated art director as I like to call.. A real partner with an eye on details plus being able to convert ideas to real images while sticking to deadlines. Simply he's the one you can count on." },
     { n: "Mohamed Elwakil", r: "Business Unit Manager", d: "Nov 2024", q: "I had the absolute pleasure of working with Mohamed, a highly skilled and creative graphic designer, and I can confidently say that his talent and dedication are unmatched." },
@@ -42,5 +29,6 @@ window.D = (() => {
     { id: 'afanin', n: A('أفانين', 'Afanin'), s: A('فنون أونلاين للأطفال', 'Online art classes for kids'), d: A('كورسات بمدربين ومتابعة للأهل.', 'Live classes with progress updates for parents.'), t: ['UX', 'UI', 'WP'], u: 'https://claude.ai/artifact/TUYdZVjV6czv61zF2nQVfR' },
     { id: 'nile', n: A('حصاد النيل', 'Nile Harvest'), s: A('أغذية مصرية للتصدير', 'Egyptian food brand'), d: A('كتالوج منتجات وأسواق تصدير ومعايير جودة للمشترين في الخارج.', 'Product catalogue, export markets and quality standards for overseas buyers.'), t: ['UX', 'UI', 'WP'], u: 'https://claude.ai/artifact/6YGxTgS5ni4ExtK6nUyZie' }
   ];
-  return { C, STEPS, P, T };
+  const IND = [["تعليم","Education"],["تدريب","Training"],["استيراد وتصدير","Import & Export"],["عقارات","Real Estate"],["رعاية صحية","Healthcare"],["مطاعم وضيافة","Restaurants"],["أزياء","Fashion"],["أثاث","Furniture"],["أغذية","Food"],["ملابس أطفال","Kids' Wear"],["ستريت وير","Streetwear"]];
+  return { C, IND, P, T };
 })();
