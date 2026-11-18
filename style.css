@@ -286,10 +286,10 @@ html.nos{overflow:hidden}
 
 /* tilted strip, set a little below the hero */
 .indw{overflow:hidden;padding-block:clamp(2rem,5vw,3.2rem) clamp(1.6rem,4vw,2.6rem)}
-.ind{position:relative;z-index:1;margin-inline:var(--g);border-radius:999px;border:1px solid rgba(255,255,255,.85);background-color:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 -1px 0 rgba(255,255,255,.35) inset,0 18px 40px -22px rgba(18,18,18,.45)}
+.ind{position:relative;z-index:1;margin-inline:var(--g);border-radius:999px;border:1px solid rgba(255,255,255,.85);background-color:rgba(212,255,58,.28);-webkit-backdrop-filter:blur(22px) saturate(1.6);backdrop-filter:blur(22px) saturate(1.6);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 -1px 0 rgba(255,255,255,.35) inset,0 18px 40px -22px rgba(18,18,18,.45)}
 .indw{position:relative;isolation:isolate;overflow:hidden}
 .rbx{position:absolute;inset-inline:0;inset-block:50% auto;block-size:clamp(3.4rem,9vw,5.6rem);translate:0 -50%;z-index:0;pointer-events:none;opacity:.95}
-.rbw{display:block;block-size:100%;inline-size:200%;filter:blur(26px) saturate(1.25);animation:rbm 38s linear infinite}
+.rbw{display:block;block-size:100%;inline-size:200%;filter:blur(22px);animation:rbm 38s linear infinite}
 @keyframes rbm{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.rbw{animation-duration:120s!important;animation-iteration-count:infinite!important}}
 
@@ -303,3 +303,4 @@ html.nos{overflow:hidden}
 .stcta{display:flex;justify-content:center;margin:0 0 clamp(3rem,8vw,5rem)}
 .stcta .btn{min-inline-size:14rem;justify-content:center}
 @media(max-width:640px){.stats{grid-template-columns:1fr}}
+[data-theme=dark] .ind{background-color:rgba(212,255,58,.7)}
