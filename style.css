@@ -270,7 +270,7 @@ html.nos{overflow:hidden}
 .ind ul{display:flex;inline-size:max-content;margin:0;padding:0;list-style:none;animation:mq 46s linear infinite}
 .ind:hover ul{animation-play-state:paused}
 .ind li{display:flex;align-items:center;gap:clamp(1.2rem,3vw,2.4rem);padding:1.05rem 0 1.05rem clamp(1.2rem,3vw,2.4rem);font:600 clamp(1.4rem,4.2vw,2.8rem)/1.1 var(--fb);white-space:nowrap;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#D4FF3A,#D4FF3A);-webkit-background-clip:text;background-clip:text}
-.ind li::after{content:"";inline-size:.55em;block-size:.55em;border-radius:50%;background:#D4FF3A;flex:none}
+.ind li::after{content:"";inline-size:.26em;block-size:.26em;border-radius:50%;border:1.5px solid #D4FF3A;background:transparent;flex:none}
 @keyframes mq{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ind ul{animation-duration:150s!important;animation-iteration-count:infinite!important}}
 .ind{padding-block:0}
@@ -283,3 +283,7 @@ html.nos{overflow:hidden}
 .hero3 .hl,.hero3 .mt>span:not(.stat),.hero3 .mt .stat>span,.top.over .logo span,.top.over nav a,.top.over .tg button{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#0A0A0A,#0A0A0A);-webkit-background-clip:text;background-clip:text}
 .hero3 .sb{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.85));-webkit-background-clip:text;background-clip:text}
 .hero3 .mt .stat{-webkit-text-fill-color:initial}
+
+/* tilted strip, set a little below the hero */
+.indw{overflow:hidden;padding-block:clamp(2rem,5vw,3.2rem) clamp(1.6rem,4vw,2.6rem)}
+.ind{inline-size:112%;margin-inline:-6%;transform:rotate(-2.2deg);border-block:1.5px solid #D4FF3A;box-shadow:0 14px 34px -18px rgba(0,0,0,.55)}

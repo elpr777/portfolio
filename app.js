@@ -40,10 +40,10 @@ function hero(){var n=L==="ar"?["محمد","سيد"]:["Muhammad","Sayed"];
   h("canvas",{class:"hbg","aria-hidden":"true"}),
   h("h1",{class:"sr",text:n.join(" ")}),
   pitch(),
-  h("div",{class:"mt"},[h("span",{text:X("مدير تصميم","Design Director")}),h("span",{text:X("القاهرة","Cairo")}),h("span",{text:X("خبرة 16+ سنة","16+ years")}),status()].map(function(e,i){e.style.setProperty("--i",i);return e})) ])}
+  h("div",{class:"mt"},[h("span",{text:X("مدير تصميم","Design Director")}),h("span",{text:X("القاهرة","Cairo")}),h("span",{text:X("10+ سنين في المواقع","10+ years in web")}),status()].map(function(e,i){e.style.setProperty("--i",i);return e})) ])}
 function industries(){var ul=h("ul"),n=D.IND.length;for(var k=0;k<2;k++)D.IND.forEach(function(w){var li=h("li",{text:X(w[0],w[1])});if(k)li.setAttribute("aria-hidden","true");ul.appendChild(li)});
  var bg=h("canvas",{class:"ibg","aria-hidden":"true",width:"1",height:"1"});try{var c=bg.getContext("2d");c.fillStyle="#0A0A0A";c.fillRect(0,0,1,1)}catch(e){}
- return h("section",{class:"ind","aria-label":X("المجالات اللي اشتغلت فيها","Industries I work in")},[bg,ul])}
+ var sec=h("section",{class:"ind","aria-label":X("المجالات اللي اشتغلت فيها","Industries I work in")},[bg,ul]);return h("div",{class:"indw"},[sec])}
 function movePv(){raf=0;tx+=(cx-tx)*.16;ty+=(cy-ty)*.16;pv.style.transform="translate3d("+Math.round(tx+28)+"px,"+Math.round(ty-110)+"px,0) scale(1)";if(Math.abs(cx-tx)>.5||Math.abs(cy-ty)>.5)raf=requestAnimationFrame(movePv)}
 function showPv(p,x,y){pvImg.src="img/"+p.id+"-d.webp";pvImg.alt="";pvTag.textContent=X("افتح ↗","Open ↗");pv.classList.add("on");pv.style.scale="1";track(x,y)}
 function track(x,y){cx=Math.min(x,innerWidth-pv.offsetWidth-40);cy=y;if(!raf)raf=requestAnimationFrame(movePv)}
