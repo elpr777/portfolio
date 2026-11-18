@@ -354,3 +354,8 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 /* v7: strip flush under the hero, no margin, no padding */
 .indw{margin:0;padding:0}
 .ind{margin:0}
+
+/* scroll effect on the website thumbnails: they rise with the row and ease from a slight zoom to rest */
+.row .th img{transform:scale(1.14);transition:transform 1.3s var(--ease)}
+.row.in .th img{transform:scale(1)}
+@media(prefers-reduced-motion:reduce){.row .th img{transition-duration:1.3s!important}}
