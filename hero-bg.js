@@ -1,7 +1,7 @@
 /* Hero background (creative code): a live topographic field.
    A smooth scalar field is sampled on a coarse grid every frame and contoured with marching squares.
    The pointer raises a hill, taps send ripples through it. Pauses off-screen / hidden tab,
-   renders one still frame for reduced motion, DPR capped at 2. */
+   slows to a gentle drift for reduced motion, DPR capped at 2. */
 (function () {
   "use strict";
   var RM = matchMedia("(prefers-reduced-motion: reduce)");
@@ -76,23 +76,21 @@
     }
     function frame() {
       raf = 0; if (!cv.isConnected) return;
-      t += .012; pw += ((px > -999 ? 1 : 0) - pw) * .06;
+      t += RM.matches ? .004 : .012; pw += ((px > -999 ? 1 : 0) - pw) * .06;
       if (tx > -999) { if (px < -999) { px = tx; py = ty; } px += (tx - px) * .12; py += (ty - py) * .12; }
       for (var q = ripples.length - 1; q >= 0; q--) { var rp = ripples[q]; rp.a += .012; rp.s *= .985; if (rp.a > 1.6) ripples.splice(q, 1); }
       field(); draw();
-      if (vis && !RM.matches) raf = requestAnimationFrame(frame);
+      if (vis) raf = requestAnimationFrame(frame);
     }
-    function start() { if (!raf && vis && !RM.matches && cv.isConnected) raf = requestAnimationFrame(frame); }
-    function still() { t = 4.2; px = py = -9999; pw = 0; ripples = []; field(); draw(); }
+    function start() { if (!raf && vis && cv.isConnected) raf = requestAnimationFrame(frame); }
     function pos(e) { var r = hero.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; }
-    size(); if (RM.matches) still(); else start();
+    size(); start();
     hero.addEventListener("pointermove", pos, { passive: true });
     hero.addEventListener("pointerdown", function (e) { pos(e); if (ripples.length < 4) ripples.push({ x: tx, y: ty, a: 0, s: 1 }); }, { passive: true });
     hero.addEventListener("pointerleave", function () { tx = ty = px = py = -9999; }, { passive: true });
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting && !document.hidden; vis ? start() : (raf && cancelAnimationFrame(raf), raf = 0); }).observe(hero);
     document.addEventListener("visibilitychange", function () { vis = !document.hidden; vis ? start() : (raf && cancelAnimationFrame(raf), raf = 0); });
-    var rt; addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { size(); RM.matches ? still() : start(); }, 150); });
-    RM.addEventListener && RM.addEventListener("change", function () { RM.matches ? (raf && cancelAnimationFrame(raf), raf = 0, still()) : start(); });
+    var rt; addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { size(); start(); }, 150); });
   }
   function scan() { var l = document.querySelectorAll("canvas.hbg"); for (var i = 0; i < l.length; i++) init(l[i]); }
   new MutationObserver(scan).observe(document.documentElement, { childList: true, subtree: true });
