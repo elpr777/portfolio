@@ -287,3 +287,14 @@ html.nos{overflow:hidden}
 /* tilted strip, set a little below the hero */
 .indw{overflow:hidden;padding-block:clamp(2rem,5vw,3.2rem) clamp(1.6rem,4vw,2.6rem)}
 .ind{inline-size:112%;margin-inline:-6%;transform:rotate(-2.2deg);border-block:1.5px solid #D4FF3A;box-shadow:0 14px 34px -18px rgba(0,0,0,.55)}
+
+/* proof stats above the closing CTA */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-inline-size:56rem;margin:0 auto 1.6rem}
+.stt{border:1px solid var(--line);border-radius:24px;padding:clamp(1.3rem,4vw,2rem);text-align:center;background:var(--bg2)}
+.stt b{display:block;font:600 clamp(2.8rem,10vw,5rem)/1 var(--fb);letter-spacing:-.03em;color:var(--ink);box-shadow:inset 0 -.28em 0 var(--lem)}
+.stt b{inline-size:max-content;margin:0 auto}
+.stt p{margin:1rem auto .8rem;max-inline-size:24rem;font-size:1.02rem;line-height:1.5;text-wrap:balance}
+.stt small{display:block;color:var(--mut);font-size:.78rem;line-height:1.4;text-wrap:balance}
+.stcta{display:flex;justify-content:center;margin:0 0 clamp(3rem,8vw,5rem)}
+.stcta .btn{min-inline-size:14rem;justify-content:center}
+@media(max-width:640px){.stats{grid-template-columns:1fr}}

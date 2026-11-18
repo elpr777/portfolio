@@ -66,7 +66,10 @@ function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-
   h("div",{class:"tctl"},[h("div",{class:"arr",dir:"ltr"},[pv,nx]),null])])])}
 function contact(){var b=[h("a",{class:"btn p",href:"mailto:"+C.email,"aria-label":X("إيميل: ","Email: ")+C.email,title:C.email},[h("span",{text:X("إيميل","Email")})])];
  if(C.phone&&/^\+?[0-9]{8,15}$/.test(C.phone))b.push(ext(WA,"btn o",[h("span",{text:X("واتساب","WhatsApp")+" \u2197"})]));
- return h("section",{id:"contact",class:"contact"},[h("div",{class:"wrap"},[h("h2",{class:"big rv",text:X("خلّي موقعك يبيع عنك.","Let your website sell for you.")}),h("p",{class:"csub rv",text:X("ابعتلي فكرتك وهرد عليك بخطة واضحة وسعر محدد.","Send me your idea. I\u2019ll reply with a clear plan and a fixed price.")}),h("div",{class:"cst rv"},[status()]),h("div",{class:"btns rv"},b)])])}
+ function stat(n,line,src){return h("div",{class:"stt"},[h("b",{text:n,dir:"ltr"}),h("p",{text:line}),h("small",{text:src,dir:"ltr"})])}
+ var stats=h("div",{class:"stats rv"},[stat("50ms",X("هو كل اللي الزائر محتاجه عشان يحكم على شكل موقعك.","is all a visitor needs to judge how your website looks."),"Lindgaard et al. \u00B7 Carleton University \u00B7 2006"),stat("+8.4%",X("تحويل أعلى في المتاجر لما سرعة الموبايل تتحسن 0.1 ثانية بس.","higher retail conversion from just a 0.1s faster mobile site."),"Deloitte \u00D7 Google \u00B7 Milliseconds Make Millions")]);
+ var launch=h("div",{class:"stcta rv"},[ext(WA,"btn p",[h("span",{text:X("أطلق موقعك الآن","Launch your website now")+" \u2197"})])]);
+ return h("section",{id:"contact",class:"contact"},[h("div",{class:"wrap"},[stats,launch,h("h2",{class:"big rv",text:X("خلّي موقعك يبيع عنك.","Let your website sell for you.")}),h("p",{class:"csub rv",text:X("ابعتلي فكرتك وهرد عليك بخطة واضحة وسعر محدد.","Send me your idea. I\u2019ll reply with a clear plan and a fixed price.")}),h("div",{class:"cst rv"},[status()]),h("div",{class:"btns rv"},b)])])}
 function footer(){return h("footer",{class:"ft"},[h("div",{class:"wrap"},[h("span",{text:"© 2026 "+X("محمد سيد","Muhammad Sayed")}),h("span",{text:X("القاهرة","Cairo")})])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
