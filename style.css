@@ -266,11 +266,11 @@ html.nos{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.hero3 .mt>*{animation-name:mf}}
 @keyframes mf{from{opacity:0}to{opacity:1}}
 /* industries strip */
-.ind{background:#0A0A0A;color:#D4FF3A;border:0;overflow:hidden;color-scheme:only light;direction:ltr}
+.ind{color:#121212;border:0;overflow:hidden;color-scheme:only light;direction:ltr}
 .ind ul{display:flex;inline-size:max-content;margin:0;padding:0;list-style:none;animation:mq 46s linear infinite}
 .ind:hover ul{animation-play-state:paused}
-.ind li{display:flex;align-items:center;gap:clamp(1.2rem,3vw,2.4rem);padding:1.05rem 0 1.05rem clamp(1.2rem,3vw,2.4rem);font:600 clamp(1.4rem,4.2vw,2.8rem)/1.1 var(--fb);white-space:nowrap;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#D4FF3A,#D4FF3A);-webkit-background-clip:text;background-clip:text}
-.ind li::after{content:"";inline-size:.26em;block-size:.26em;border-radius:50%;border:1.5px solid #D4FF3A;background:transparent;flex:none}
+.ind li{display:flex;align-items:center;gap:clamp(1.2rem,3vw,2.4rem);padding:1.05rem 0 1.05rem clamp(1.2rem,3vw,2.4rem);font:600 clamp(1.4rem,4.2vw,2.8rem)/1.1 var(--fb);white-space:nowrap;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#121212,#121212);-webkit-background-clip:text;background-clip:text}
+.ind li::after{content:"";inline-size:.26em;block-size:.26em;border-radius:50%;border:1.5px solid #121212;background:transparent;flex:none}
 @keyframes mq{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ind ul{animation-duration:150s!important;animation-iteration-count:infinite!important}}
 .ind{padding-block:0}
@@ -279,14 +279,19 @@ html.nos{overflow:hidden}
 /* Browser "dark mode for websites" (Samsung Internet, Android force-dark) recolours CSS colours but not images.
    So the lemon ground and the black text are painted as gradients, not as colours. */
 .hero3{background-color:#D4FF3A}
-.ind{position:relative}.ind .ibg{position:absolute;inset:0;inline-size:100%;block-size:100%;z-index:0;pointer-events:none}.ind ul{position:relative;z-index:1}
+.ind ul{position:relative;z-index:1}
 .hero3 .hl,.hero3 .mt>span:not(.stat),.hero3 .mt .stat>span,.top.over .logo span,.top.over nav a,.top.over .tg button{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#0A0A0A,#0A0A0A);-webkit-background-clip:text;background-clip:text}
 .hero3 .sb{color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.85));-webkit-background-clip:text;background-clip:text}
 .hero3 .mt .stat{-webkit-text-fill-color:initial}
 
 /* tilted strip, set a little below the hero */
 .indw{overflow:hidden;padding-block:clamp(2rem,5vw,3.2rem) clamp(1.6rem,4vw,2.6rem)}
-.ind{inline-size:112%;margin-inline:-6%;transform:rotate(-2.2deg);border-block:1.5px solid #D4FF3A;box-shadow:0 14px 34px -18px rgba(0,0,0,.55)}
+.ind{position:relative;z-index:1;margin-inline:var(--g);border-radius:999px;border:1px solid rgba(255,255,255,.85);background-color:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 -1px 0 rgba(255,255,255,.35) inset,0 18px 40px -22px rgba(18,18,18,.45)}
+.indw{position:relative;isolation:isolate;overflow:hidden}
+.rbx{position:absolute;inset-inline:0;inset-block:50% auto;block-size:clamp(3.4rem,9vw,5.6rem);translate:0 -50%;z-index:0;pointer-events:none;opacity:.95}
+.rbw{display:block;block-size:100%;inline-size:200%;filter:blur(26px) saturate(1.25);animation:rbm 38s linear infinite}
+@keyframes rbm{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.rbw{animation-duration:120s!important;animation-iteration-count:infinite!important}}
 
 /* proof stats above the closing CTA */
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-inline-size:56rem;margin:0 auto 1.6rem}
