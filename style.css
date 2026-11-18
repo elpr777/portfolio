@@ -342,3 +342,11 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 /* v5: plain transparent glass, no tints, no sheen, no glints */
 .ind,[data-theme=dark] .ind{background-color:rgba(255,255,255,.1);background-image:none;border-block:1px solid rgba(255,255,255,.55);box-shadow:none;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .ind::before,.ind::after{display:none}
+
+/* v6: strip lives under the hero, at the top of Selected Work, on the page background */
+.indw{margin-block-start:0;padding-block:clamp(1.2rem,3vw,2rem)}
+.hero3 .mt{bottom:1.3rem}
+.ind,[data-theme=dark] .ind{background-color:rgba(255,255,255,.1);border-block:1px solid rgba(18,18,18,.12)}
+[data-theme=dark] .ind,[data-theme=dark] .ind{border-block-color:rgba(255,255,255,.2)}
+[data-theme=dark] .ind li{background-image:linear-gradient(#F4F4F0,#F4F4F0)}
+[data-theme=dark] .ind li::after{border-color:#F4F4F0}
