@@ -171,3 +171,9 @@ h1,h2,h3,.hd-f{font-weight:800;line-height:1.15}
 /* no orphan words: balanced headings, pretty paragraphs (all languages) */
 h1,h2,h3,h4,.sub,.lead,.cap,blockquote,figcaption{text-wrap:balance}
 p,li,dd,summary,label,.d{text-wrap:pretty}
+
+/* size guide: photo keeps its ratio; steps centred with calm leading (type 15 -> line 18) */
+.stack>img{inline-size:100%;block-size:auto;aspect-ratio:3/2;object-fit:cover;object-position:center 30%;border:var(--ol);box-shadow:var(--hs);border-radius:var(--r3)}
+.steps li{align-items:center;padding:.95rem 1.1rem;line-height:1.2}
+.steps li::before{align-self:center}
+.steps li>div{display:grid;align-content:center}
