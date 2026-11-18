@@ -1,0 +1,1 @@
+(function(){try{var l=localStorage.getItem("ms2_lang"),t=localStorage.getItem("ms2_theme");l=l==="en"?"en":"ar";t=t==="light"?"light":(t==="dark"?"dark":(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"));var d=document.documentElement;d.lang=l;d.dir=l==="ar"?"rtl":"ltr";d.dataset.theme=t}catch(e){}})();

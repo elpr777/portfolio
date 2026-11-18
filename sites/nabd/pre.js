@@ -1,0 +1,1 @@
+try{var t=JSON.parse(localStorage.getItem('nabd_theme'));document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var l=JSON.parse(localStorage.getItem('nabd_lang'));if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr'}}catch(e){}

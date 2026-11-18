@@ -1,0 +1,1 @@
+try{var t=JSON.parse(localStorage.getItem('haze_theme'));document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:'light';var l=JSON.parse(localStorage.getItem('haze_lang'));if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr'}}catch(e){}
