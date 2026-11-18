@@ -93,6 +93,7 @@ function project(id){var i=D.P.findIndex(function(p){return p.id===id});if(i<0)r
   h("div",{class:"btns"},btns),
   LOCAL[p.id]?viewer(p):h("div",{class:"stage"},[h("div",{class:"frame"},[bar(),h("img",{src:"img/"+p.id+"-d.webp",alt:X("لقطة من موقع ","Screenshot of ")+P(p.n),width:"1280",height:"800"})]),h("div",{class:"phone"},[h("img",{src:"img/"+p.id+"-m.webp",alt:X("نسخة الموبايل","Mobile view"),width:"520",height:"1100"})])]),
   h("div",{class:"next"},[h("span",{class:"chip",text:X("التالي","Next")}),h("a",{href:"#/p/"+n.id,text:P(n.n)+" →"})])])])}
+document.addEventListener("touchstart",function(){},{passive:true});
 function reveal(){var els=[].slice.call(document.querySelectorAll(".rv"));if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("in")});return}
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}
 var pb;function prog(){var hd=document.querySelector("header.fx"),hr=document.querySelector(".hero3");if(hd&&hr)hd.classList.toggle("over",scrollY<hr.offsetHeight-70);if(!pb)return;var m=document.documentElement.scrollHeight-innerHeight;pb.style.transform="scaleX("+(m>0?Math.min(1,scrollY/m):0)+")"}
