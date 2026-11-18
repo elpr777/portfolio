@@ -327,3 +327,14 @@ box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 -1px 0 rgba(212,255,58,.55) inse
 .ind::before,.ind::after{background:radial-gradient(closest-side,#D4FF3A,rgba(212,255,58,0));block-size:4px}
 [data-theme=dark] .ind{background-color:rgba(255,255,255,.6)}
 .hero3 .mt{bottom:calc(clamp(1.8rem,5vw,2.6rem) + 1rem)}
+
+/* v4: strip sits fully inside the hero's end, so the whole glass is over lemon; green light lives in the tints */
+:root{--ih:calc(2.1rem + 1.1 * clamp(1.4rem,4.2vw,2.8rem) + 3px)}
+.indw{margin-block-start:calc(var(--ih) * -1);padding-block:0 clamp(1.2rem,3vw,2rem)}
+.hero3 .mt{bottom:calc(var(--ih) + 1rem)}
+.ind,[data-theme=dark] .ind{background-color:rgba(255,255,255,.14);
+background-image:radial-gradient(ellipse 20% 180% at 93% 50%,rgba(120,200,0,.55),rgba(120,200,0,0) 70%),radial-gradient(ellipse 14% 150% at 5% 50%,rgba(255,255,255,.6),rgba(255,255,255,0) 70%),linear-gradient(105deg,transparent 0 26%,rgba(255,255,255,.3) 26% 31%,transparent 31% 58%,rgba(255,255,255,.2) 58% 66%,transparent 66%);
+border-block:1.5px solid rgba(255,255,255,.95);
+box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20px rgba(50,90,0,.6)}
+.ind::before{background:radial-gradient(closest-side,#fff,rgba(255,255,255,0))}
+.ind::after{background:radial-gradient(closest-side,#7FC800,rgba(127,200,0,0))}
