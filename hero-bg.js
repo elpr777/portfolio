@@ -1,55 +1,91 @@
-/* Hero background: generative flow field (creative code). Ink strokes drift on the lemon ground,
-   bend around the pointer, pause off-screen / hidden tab, and render one still frame for reduced motion. */
+/* Hero background (creative code): a live topographic field.
+   A smooth scalar field is sampled on a coarse grid every frame and contoured with marching squares.
+   The pointer raises a hill, taps send ripples through it. Pauses off-screen / hidden tab,
+   renders one still frame for reduced motion, DPR capped at 2. */
 (function () {
   "use strict";
   var RM = matchMedia("(prefers-reduced-motion: reduce)");
   function init(cv) {
     if (cv.__hb) return; cv.__hb = 1;
     var ctx = cv.getContext("2d", { alpha: false }); if (!ctx) return;
-    var hero = cv.parentNode, W = 0, H = 0, dpr = 1, P = [], raf = 0, vis = true, t = 0;
-    var mx = -9999, my = -9999, mv = 0;
-    var ground = "#D4FF3A", ink = "10,10,10";
+    var hero = cv.parentNode, W = 0, H = 0, cs = 16, nx = 0, ny = 0, F = null, raf = 0, vis = true, t = 0;
+    var tx = -9999, ty = -9999, px = -9999, py = -9999, pw = 0, ripples = [];
+    var ground = "#D4FF3A";
     try { var g = getComputedStyle(hero).backgroundColor; if (g) ground = g; } catch (e) {}
+    var LV = [], STEP = .34, i0;
+    for (i0 = -9; i0 <= 9; i0++) LV.push(i0 * STEP);
     function size() {
-      var r = hero.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, 2);
+      var r = hero.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
       W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
       cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cs = W < 700 ? 18 : 14; nx = Math.ceil(W / cs) + 1; ny = Math.ceil(H / cs) + 1;
+      F = new Float32Array((nx + 1) * (ny + 1));
+    }
+    function field() {
+      var kf = W < 700 ? 2.3 : 1, sx = .0042 * kf, sy = .0058 * kf, k = 0, hx = px, hy = py;
+      for (var j = 0; j <= ny; j++) {
+        var y = j * cs;
+        for (var i = 0; i <= nx; i++, k++) {
+          var x = i * cs;
+          var v = Math.sin(x * sx + t * .42) * 1.15 + Math.cos(y * sy - t * .31) * 1.05
+                + Math.sin((x + y) * .0027 * kf + t * .22) * 1.2 + Math.sin(Math.hypot(x - W * .5, y - H * .45) * .006 * kf - t * .5) * 1.1;
+          if (pw > .01) { var dx = x - hx, dy = y - hy; v += pw * 3.1 * Math.exp(-(dx * dx + dy * dy) / (2 * 150 * 150)); }
+          for (var q = 0; q < ripples.length; q++) {
+            var rp = ripples[q], d = Math.hypot(x - rp.x, y - rp.y), a = (d - rp.a * 420) * .028;
+            v += Math.cos(a) * Math.exp(-a * a * .5) * rp.s * 1.6;
+          }
+          F[k] = v;
+        }
+      }
+    }
+    function iso(l, a, b) { return (l - a) / (b - a); }
+    function draw() {
       ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
-      var n = Math.round(Math.min(900, Math.max(220, W * H / 2600)));
-      P = []; for (var i = 0; i < n; i++) P.push(seed());
-    }
-    function seed() { return { x: Math.random() * W, y: Math.random() * H, px: 0, py: 0, a: Math.random() * .5 + .18, l: 0 }; }
-    // cheap smooth field: layered sines (no external noise lib)
-    function ang(x, y) {
-      var s = .0036;
-      return Math.sin(x * s + t * .35) * 1.9 + Math.cos(y * s * 1.3 - t * .27) * 1.7 + Math.sin((x + y) * s * .7 + t * .18) * 1.2;
-    }
-    function step(draw) {
-      var R = Math.min(W, H) * .22;
-      for (var i = 0; i < P.length; i++) {
-        var p = P[i], a = ang(p.x, p.y), sp = 1.25;
-        var dx = p.x - mx, dy = p.y - my, d2 = dx * dx + dy * dy;
-        var vx = Math.cos(a) * sp, vy = Math.sin(a) * sp;
-        if (d2 < R * R) { var d = Math.sqrt(d2) || 1, f = (1 - d / R) * 3.2 * (.4 + mv); vx += dx / d * f - dy / d * f * .8; vy += dy / d * f + dx / d * f * .8; }
-        p.px = p.x; p.py = p.y; p.x += vx; p.y += vy; p.l++;
-        if (draw) { ctx.strokeStyle = "rgba(" + ink + "," + p.a + ")"; ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke(); }
-        if (p.x < -5 || p.x > W + 5 || p.y < -5 || p.y > H + 5 || p.l > 260) { p.x = Math.random() * W; p.y = Math.random() * H; p.px = p.x; p.py = p.y; p.l = 0; }
+      var row = nx + 1;
+      for (var li = 0; li < LV.length; li++) {
+        var l = LV[li], major = (li % 4 === 1);
+        ctx.beginPath();
+        for (var j = 0; j < ny; j++) {
+          for (var i = 0; i < nx; i++) {
+            var k = j * row + i, a = F[k], b = F[k + 1], c = F[k + row + 1], d = F[k + row];
+            var mn = a < b ? a : b, mx = a < b ? b : a; if (c < mn) mn = c; if (c > mx) mx = c; if (d < mn) mn = d; if (d > mx) mx = d;
+            if (l < mn || l > mx) continue;
+            var cse = (a >= l ? 8 : 0) | (b >= l ? 4 : 0) | (c >= l ? 2 : 0) | (d >= l ? 1 : 0);
+            if (cse === 0 || cse === 15) continue;
+            var x0 = i * cs, y0 = j * cs;
+            var T = [x0 + iso(l, a, b) * cs, y0], R = [x0 + cs, y0 + iso(l, b, c) * cs], B = [x0 + iso(l, d, c) * cs, y0 + cs], Lf = [x0, y0 + iso(l, a, d) * cs];
+            var s;
+            switch (cse) {
+              case 1: case 14: s = [Lf, B]; break;
+              case 2: case 13: s = [B, R]; break;
+              case 3: case 12: s = [Lf, R]; break;
+              case 4: case 11: s = [T, R]; break;
+              case 5: s = [T, R, Lf, B]; break;
+              case 6: case 9: s = [T, B]; break;
+              case 7: case 8: s = [T, Lf]; break;
+              case 10: s = [T, Lf, R, B]; break;
+            }
+            for (var m = 0; m < s.length; m += 2) { ctx.moveTo(s[m][0], s[m][1]); ctx.lineTo(s[m + 1][0], s[m + 1][1]); }
+          }
+        }
+        ctx.lineWidth = major ? 1.5 : .8; ctx.strokeStyle = major ? "rgba(10,10,10,.92)" : "rgba(10,10,10,.5)"; ctx.stroke();
       }
     }
     function frame() {
       raf = 0; if (!cv.isConnected) return;
-      t += .016; mv *= .94;
-      ctx.fillStyle = ground; ctx.globalAlpha = .09; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
-      ctx.lineWidth = .9; step(true);
+      t += .012; pw += ((px > -999 ? 1 : 0) - pw) * .06;
+      if (tx > -999) { if (px < -999) { px = tx; py = ty; } px += (tx - px) * .12; py += (ty - py) * .12; }
+      for (var q = ripples.length - 1; q >= 0; q--) { var rp = ripples[q]; rp.a += .012; rp.s *= .985; if (rp.a > 1.6) ripples.splice(q, 1); }
+      field(); draw();
       if (vis && !RM.matches) raf = requestAnimationFrame(frame);
     }
     function start() { if (!raf && vis && !RM.matches && cv.isConnected) raf = requestAnimationFrame(frame); }
-    function still() { ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H); ctx.lineWidth = .9; t = 3; for (var k = 0; k < 90; k++) { t += .016; step(true); } }
-    size();
-    if (RM.matches) still(); else start();
-    function move(e) { var r = hero.getBoundingClientRect(); var x = e.clientX - r.left, y = e.clientY - r.top; mv = Math.min(1, mv + Math.hypot(x - mx, y - my) * .01); mx = x; my = y; }
-    hero.addEventListener("pointermove", move, { passive: true });
-    hero.addEventListener("pointerleave", function () { mx = my = -9999; }, { passive: true });
+    function still() { t = 4.2; px = py = -9999; pw = 0; ripples = []; field(); draw(); }
+    function pos(e) { var r = hero.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; }
+    size(); if (RM.matches) still(); else start();
+    hero.addEventListener("pointermove", pos, { passive: true });
+    hero.addEventListener("pointerdown", function (e) { pos(e); if (ripples.length < 4) ripples.push({ x: tx, y: ty, a: 0, s: 1 }); }, { passive: true });
+    hero.addEventListener("pointerleave", function () { tx = ty = px = py = -9999; }, { passive: true });
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting && !document.hidden; vis ? start() : (raf && cancelAnimationFrame(raf), raf = 0); }).observe(hero);
     document.addEventListener("visibilitychange", function () { vis = !document.hidden; vis ? start() : (raf && cancelAnimationFrame(raf), raf = 0); });
     var rt; addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { size(); RM.matches ? still() : start(); }, 150); });
