@@ -265,3 +265,27 @@ html.nos{overflow:hidden}
 .contact .btns{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.75rem}
 .contact .btn{flex:1 1 11rem;max-inline-size:16rem;justify-content:center;white-space:nowrap}
 @media(max-width:560px){.contact .btns{flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:.5rem}.contact .btn{flex:1 1 0;min-inline-size:0;max-inline-size:none;padding-inline:.4rem;font-size:.82rem}}
+
+/* header contrast on the lemon hero (dark theme too) */
+.top.over .logo,.top.over .tg button{color:#0A0A0A}
+/* hero pitch */
+.hero3 .pitch{position:relative;z-index:3;color:#0A0A0A;padding:5.6rem var(--g) 0;max-inline-size:34rem;margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.hl{font:600 clamp(1.7rem,6.4vw,2.6rem)/1.15 var(--fb);margin:0;white-space:pre-line;text-wrap:balance;letter-spacing:-.01em}
+[lang=en] .hl{font-weight:700;letter-spacing:-.025em}
+.hero3 .sb{margin:0;font-size:clamp(.98rem,3.4vw,1.1rem);line-height:1.55;max-inline-size:30rem;text-wrap:pretty;color:rgba(10,10,10,.82)}
+.pc{display:flex;flex-direction:column;align-items:center;gap:.8rem;margin-top:.4rem}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;min-block-size:3.1rem;padding:.7rem 1.5rem;border-radius:99px;background:#0A0A0A;color:var(--lem);font-weight:600;text-align:center;transition:transform .25s var(--ease)}
+.hbtn:hover{transform:translateY(-2px)}.hbtn:focus-visible{outline:3px solid #0A0A0A;outline-offset:3px}
+.stat{display:inline-flex;align-items:center;gap:.55rem;min-block-size:2.1rem;padding:.3rem .9rem;border-radius:99px;background:#0A0A0A;color:#F2F2F2;font-size:.8rem;font-weight:500}
+.stat i{inline-size:.6rem;block-size:.6rem;border-radius:50%;background:#8a8f98;flex:none}
+.stat[data-s=on] i{background:#34D27B;box-shadow:0 0 0 0 rgba(52,210,123,.6);animation:sp 2s infinite}
+.stat[data-s=off] i{background:#FF6B5E}
+@keyframes sp{70%{box-shadow:0 0 0 .5rem rgba(52,210,123,0)}100%{box-shadow:0 0 0 0 rgba(52,210,123,0)}}
+@media(prefers-reduced-motion:reduce){.stat i{animation:none!important}}
+.cst{display:flex;justify-content:center;margin:0 0 1.4rem}
+.contact .stat{background:var(--bg2);color:var(--ink);border:1px solid var(--line)}
+/* stacked (mobile/tablet): pitch on top, portrait at the bottom */
+@media(max-width:1099px){.hero3{min-height:max(640px,92svh);display:flex;flex-direction:column}.hero3 .pt{height:min(46svh,470px)}.hero3 .mt{z-index:3}}
+@media(max-width:620px){.hero3 .pt{height:46svh}}
+/* wide: pitch beside the face */
+@media(min-width:1100px){.hero3 .pitch{position:absolute;inset-inline-start:max(5vw,4rem);top:50%;transform:translateY(-46%);padding:0;text-align:start;align-items:flex-start;max-inline-size:26rem;margin:0}.hero3 .pc{align-items:flex-start}.hero3{min-height:clamp(520px,70svh,640px)}.hero3 .pt{height:min(70svh,640px)}}

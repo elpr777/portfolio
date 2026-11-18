@@ -25,11 +25,21 @@ function strip(){var ul=h("ul",{class:"trk"});
   ul.appendChild(h("li",null,[h("a",an,[h("img",{src:"img/"+p.id+"-m.webp",alt:"",width:"260",height:"550",loading:"eager"})])]))})});
  return h("div",{class:"strip"},[ul])}
 function ln(t,i){var s=h("span",{text:t});s.style.setProperty("--i",i);return h("span",{class:"ln"},[s])}
+var WA="https://wa.me/201012203073?text="+encodeURIComponent("\u0623\u0647\u0644\u0627\u064b \u0645\u062d\u0645\u062f\u060c \u0639\u0627\u064a\u0632 \u0623\u0628\u062f\u0623 \u0645\u0634\u0631\u0648\u0639\u064a. \u0645\u0645\u0643\u0646 \u0646\u062a\u0643\u0644\u0645\u061f");
+function cairoOpen(){try{var p=new Intl.DateTimeFormat("en-GB",{timeZone:"Africa/Cairo",hour:"numeric",hour12:false}).format(new Date());var hr=parseInt(p,10)%24;return hr>=10&&hr<16}catch(e){return false}}
+function status(){var on=cairoOpen();var el=h("span",{class:"stat","data-s":on?"on":"off",role:"status"},[h("i","aria-hidden"),h("span",{text:""})]);
+ function paint(){var o=cairoOpen();el.setAttribute("data-s",o?"on":"off");el.lastChild.textContent=(o?X("أونلاين الآن","Online now"):X("أوفلاين الآن","Offline now"))+" \u00B7 "+X("10 ص \u2013 4 م","10 AM \u2013 4 PM Cairo")}
+ paint();var t=setInterval(function(){if(!el.isConnected){clearInterval(t);return}paint()},60000);return el}
+function pitch(){return h("div",{class:"pitch"},[
+  h("h2",{class:"hl",text:X("موقعك مش صفحة.\nده أقوى بياع عندك.","Your website isn\u2019t a page.\nIt\u2019s your best salesperson.")}),
+  h("p",{class:"sb",text:X("بصمّم وببني مواقع وهويات بتقنع الزائر، وتحوّله لعميل من أول شاشة.","I design and build websites and brands that win trust on the first screen and turn visitors into customers.")}),
+  h("div",{class:"pc"},[ext(WA,"hbtn",[h("span",{text:X("ابدأ مشروعك على واتساب \u2197","Start your project on WhatsApp \u2197")})]),status()])])}
 function hero(){var n=L==="ar"?["محمد","سيد"]:["Muhammad","Sayed"];
  return h("section",{class:"hero3"},[
   h("canvas",{class:"hbg","aria-hidden":"true"}),
   h("img",{class:"pt",src:"img/portrait.webp",alt:X("صورة محمد سيد","Portrait of Muhammad Sayed"),width:"1600",height:"879",fetchpriority:"high"}),
   h("h1",{class:"sr",text:n.join(" ")}),
+  pitch(),
   h("div",{class:"mt"},[h("span",{text:X("مدير تصميم","Design Director")}),h("span",{text:X("القاهرة","Cairo")}),h("span",{text:X("خبرة 16+ سنة","16+ years")}),h("span",{text:"2026"})])])}
 function process(){var ol=h("ol",{class:"steps",tabindex:"0","aria-label":X("خطوات العمل","Work steps")});D.STEPS.forEach(function(s,i){ol.appendChild(h("li",{class:"step"},[h("b",{text:String(i+1).padStart(2,"0")}),h("h3",{text:P(s[1])}),h("p",{text:P(s[2])})]))});
  return h("section",{id:"process",class:"proc"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("خطوات العمل","Work steps")}),h("span",{text:X("اسحب \u2190","Scroll \u2192")})])]),ol])}
@@ -56,7 +66,7 @@ function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-
 function contact(){var b=[h("a",{class:"btn p",href:"mailto:"+C.email,"aria-label":X("إيميل: ","Email: ")+C.email,title:C.email},[h("span",{text:X("إيميل","Email")})])];
  if(C.phone&&/^\+?[0-9]{8,15}$/.test(C.phone))b.push(ext("https://wa.me/"+C.phone.replace(/\D/g,""),"btn o",[h("span",{text:X("واتساب","WhatsApp")+" \u2197"})]));
  if(C.linkedin)b.push(ext(C.linkedin,"btn o",[h("span",{text:"LinkedIn \u2197"})]));
- return h("section",{id:"contact",class:"contact"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("تواصل","Contact")})]),h("h2",{class:"big rv",text:X("نبني موقعك؟","Let’s build yours.")}),h("div",{class:"btns rv"},b)])])}
+ return h("section",{id:"contact",class:"contact"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("تواصل","Contact")})]),h("h2",{class:"big rv",text:X("نبني موقعك؟","Let’s build yours.")}),h("div",{class:"cst rv"},[status()]),h("div",{class:"btns rv"},b)])])}
 function footer(){return h("footer",{class:"ft"},[h("div",{class:"wrap"},[h("span",{text:"© 2026 "+X("محمد سيد","Muhammad Sayed")}),h("span",{text:X("القاهرة","Cairo")})])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
