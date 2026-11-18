@@ -316,4 +316,14 @@ box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 -1px 0 rgba(255,255,255,.5) inse
 @keyframes gl{to{inset-inline-start:118%}}
 @keyframes gr{to{inset-inline-start:-18%}}
 @media(prefers-reduced-motion:reduce){.ind::before,.ind::after{animation-iteration-count:infinite!important;animation-duration:9s!important}}
-[data-theme=dark] .ind{background-color:rgba(212,255,58,.4)}
+
+/* v3: transparent UI glass, lemon only on the edges and one side light; sits on the hero's end */
+.rbx{display:none}
+.indw{padding-block:0 clamp(1.2rem,3vw,2rem);margin-block-start:clamp(-2.6rem,-5vw,-1.8rem);position:relative;z-index:3;overflow:hidden}
+.ind{background-color:rgba(255,255,255,.07);
+background-image:radial-gradient(ellipse 16% 160% at 94% 50%,rgba(212,255,58,.75),rgba(212,255,58,0) 70%),linear-gradient(105deg,transparent 0 26%,rgba(255,255,255,.3) 26% 31%,transparent 31% 58%,rgba(255,255,255,.2) 58% 66%,transparent 66%);
+border-block:1.5px solid #D4FF3A;
+box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 -1px 0 rgba(212,255,58,.55) inset,0 0 18px -4px rgba(212,255,58,.55),0 16px 36px -22px rgba(18,18,18,.5)}
+.ind::before,.ind::after{background:radial-gradient(closest-side,#D4FF3A,rgba(212,255,58,0));block-size:4px}
+[data-theme=dark] .ind{background-color:rgba(255,255,255,.6)}
+.hero3 .mt{bottom:calc(clamp(1.8rem,5vw,2.6rem) + 1rem)}
