@@ -59,10 +59,10 @@ function work(){var ul=h("ul",{class:"list"});
  return h("section",{id:"work"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("أعمال مختارة","Selected work")}),h("span",{text:X("11 موقع","11 websites")})]),ul])])}
 function slide(dir){var tr=document.getElementById("tr");if(!tr)return;var c=tr.querySelector("li");var w=c?c.offsetWidth+16:340;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;tr.scrollBy({left:dir*w,behavior:rm?"auto":"smooth"})}
 function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-label":X("آراء العملاء","Testimonials")});
- D.T.forEach(function(t){tr.appendChild(h("li",{class:"tc",lang:"en"},[h("span",{class:"qm","aria-hidden":"true",text:"\u201C"}),h("blockquote",null,[h("p",{text:t.q})]),h("footer",null,[h("b",{text:t.n}),h("span",{text:t.r}),h("small",{text:t.d+" \u00B7 "+X("لينكدإن","LinkedIn")})])]))});
+ D.T.forEach(function(t){tr.appendChild(h("li",{class:"tc",lang:"en"},[h("span",{class:"qm","aria-hidden":"true",text:"\u201C"}),h("blockquote",null,[h("p",{text:t.q})]),h("footer",null,[h("b",{text:t.n}),h("span",{text:t.r}),h("small",{text:t.d})])]))});
  var pv=h("button",{type:"button","aria-label":X("السابق","Previous"),text:"\u2190"}),nx=h("button",{type:"button","aria-label":X("التالي","Next"),text:"\u2192"});
  pv.onclick=function(){slide(-1)};nx.onclick=function(){slide(1)};
- return h("section",{id:"testimonials"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("آراء العملاء","Testimonials")}),h("span",{text:X("من توصيات لينكدإن","From LinkedIn recommendations")})]),tr,
+ return h("section",{id:"testimonials"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("آراء العملاء","Testimonials")})]),tr,
   h("div",{class:"tctl"},[h("div",{class:"arr",dir:"ltr"},[pv,nx]),null])])])}
 function contact(){var b=[h("a",{class:"btn p",href:"mailto:"+C.email,"aria-label":X("إيميل: ","Email: ")+C.email,title:C.email},[h("span",{text:X("إيميل","Email")})])];
  if(C.phone&&/^\+?[0-9]{8,15}$/.test(C.phone))b.push(ext(WA,"btn o",[h("span",{text:X("واتساب","WhatsApp")+" \u2197"})]));
