@@ -95,7 +95,7 @@ function project(id){var i=D.P.findIndex(function(p){return p.id===id});if(i<0)r
   h("div",{class:"next"},[h("span",{class:"chip",text:X("التالي","Next")}),h("a",{href:"#/p/"+n.id,text:P(n.n)+" →"})])])])}
 document.addEventListener("touchstart",function(){},{passive:true});
 function reveal(){var els=[].slice.call(document.querySelectorAll(".rv"));if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("in")});return}
- var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2,rootMargin:"0px 0px -14% 0px"});els.forEach(function(e){io.observe(e)})}
 var pb;function prog(){var hd=document.querySelector("header.fx"),hr=document.querySelector(".hero3");if(hd&&hr)hd.classList.toggle("over",scrollY<hr.offsetHeight-70);if(!pb)return;var m=document.documentElement.scrollHeight-innerHeight;pb.style.transform="scaleX("+(m>0?Math.min(1,scrollY/m):0)+")"}
 function render(){var hash=location.hash.replace(/^#\/?/,""),pg=null,seg=hash.split("/");
  app.replaceChildren();
