@@ -267,7 +267,7 @@ html.nos{overflow:hidden}
 @keyframes mf{from{opacity:0}to{opacity:1}}
 /* industries strip */
 .ind{color:#121212;border:0;overflow:hidden;color-scheme:only light;direction:ltr}
-.ind ul{display:flex;inline-size:max-content;margin:0;padding:0;list-style:none;animation:mq 46s linear infinite}
+.ind ul{display:flex;inline-size:max-content;margin:0;padding:0;list-style:none;animation:mq 24s linear infinite}
 .ind:hover ul{animation-play-state:paused}
 .ind li{display:flex;align-items:center;gap:clamp(1.2rem,3vw,2.4rem);padding:1.05rem 0 1.05rem clamp(1.2rem,3vw,2.4rem);font:600 clamp(1.4rem,4.2vw,2.8rem)/1.1 var(--fb);white-space:nowrap;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(#121212,#121212);-webkit-background-clip:text;background-clip:text}
 .ind li::after{content:"";inline-size:.26em;block-size:.26em;border-radius:50%;border:1.5px solid #121212;background:transparent;flex:none}
@@ -289,7 +289,7 @@ html.nos{overflow:hidden}
 .ind{position:relative;z-index:1;margin-inline:var(--g);border-radius:999px;border:1px solid rgba(255,255,255,.85);background-color:rgba(212,255,58,.28);-webkit-backdrop-filter:blur(22px) saturate(1.6);backdrop-filter:blur(22px) saturate(1.6);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 -1px 0 rgba(255,255,255,.35) inset,0 18px 40px -22px rgba(18,18,18,.45)}
 .indw{position:relative;isolation:isolate;overflow:hidden}
 .rbx{position:absolute;inset-inline:0;inset-block:50% auto;block-size:clamp(3.4rem,9vw,5.6rem);translate:0 -50%;z-index:0;pointer-events:none;opacity:.95}
-.rbw{display:block;block-size:100%;inline-size:200%;filter:blur(22px);animation:rbm 38s linear infinite}
+.rbw{display:block;block-size:100%;inline-size:200%;filter:blur(22px);animation:rbm 18s linear infinite}
 @keyframes rbm{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.rbw{animation-duration:120s!important;animation-iteration-count:infinite!important}}
 
@@ -303,4 +303,17 @@ html.nos{overflow:hidden}
 .stcta{display:flex;justify-content:center;margin:0 0 clamp(3rem,8vw,5rem)}
 .stcta .btn{min-inline-size:14rem;justify-content:center}
 @media(max-width:640px){.stats{grid-template-columns:1fr}}
-[data-theme=dark] .ind{background-color:rgba(212,255,58,.7)}
+
+/* clear glass panel, edge to edge: thin bright edges, diagonal sheen, moving glints */
+.ind{margin-inline:0;border-radius:0;border:0;border-block:1px solid rgba(255,255,255,.95);
+background-color:rgba(255,255,255,.1);
+background-image:linear-gradient(105deg,transparent 0 26%,rgba(255,255,255,.34) 26% 32%,transparent 32% 58%,rgba(255,255,255,.22) 58% 68%,transparent 68%);
+-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);
+box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 -1px 0 rgba(255,255,255,.5) inset,0 20px 44px -26px rgba(18,18,18,.4)}
+.ind::before,.ind::after{content:"";position:absolute;z-index:2;pointer-events:none;inline-size:18%;block-size:3px;border-radius:3px;background:radial-gradient(closest-side,#fff,rgba(255,255,255,0));filter:blur(.6px)}
+.ind::before{inset-block-start:-1px;inset-inline-start:-18%;animation:gl 6s linear infinite}
+.ind::after{inset-block-end:-1px;inset-inline-start:118%;animation:gr 7.5s linear infinite}
+@keyframes gl{to{inset-inline-start:118%}}
+@keyframes gr{to{inset-inline-start:-18%}}
+@media(prefers-reduced-motion:reduce){.ind::before,.ind::after{animation-iteration-count:infinite!important;animation-duration:9s!important}}
+[data-theme=dark] .ind{background-color:rgba(212,255,58,.4)}
