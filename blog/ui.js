@@ -39,7 +39,7 @@ window.BlogUI={
    h("div",{class:"prose"},body),
    h("section",{class:"faq","aria-labelledby":"faqh"},[h("h2",{id:"faqh",text:X("أسئلة شائعة","Frequently asked questions")})].concat(a.faq.map(function(f){return h("details",null,[h("summary",{text:T(f.q,L)}),h("p",{text:T(f.a,L)})])}))),
    h("section",{class:"srcs"},[h("h2",{text:X("المصادر","Sources")}),h("ol",null,a.src.map(function(r){var u=safe(r.u);return h("li",null,[h("a",{href:u||"#",target:"_blank",rel:"noopener noreferrer",text:r.t})])}))]),
-   h("div",{class:"bcta"},[h("p",{text:X("عايز تطبّق ده على موقعك؟","Want this applied to your own site?")}),h("a",{class:"btn p",href:"#/contact",text:X("نتكلم عن مشروعك","Let's talk about your project")})]),
+   h("div",{class:"bcta"},[h("p",{text:X("عايز تطبّق ده على موقعك؟","Want this applied to your own site?")}),h("a",{class:"btn p",href:"mailto:muhammadibnsayed@gmail.com",text:X("نتكلم عن مشروعك","Let's talk about your project")})]),
    h("a",{class:"nextart",href:"#/blog/"+nx.slug},[h("span",{class:"chip",text:X("المقال التالي","Next article")}),h("span",{text:T(nx.title,L)+" →"})]),s])])}
 };
 })();

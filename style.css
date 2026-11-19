@@ -405,3 +405,13 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 .bcta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:3rem;padding:1.5rem;border-radius:18px;background:var(--bg2)}
 .bcta p{margin:0;font-size:1.125rem;font-weight:600}
 .nextart{display:grid;gap:.5rem;margin-top:2rem;padding:1.25rem 0;border-top:1px solid var(--line);color:var(--ink);font-size:1.125rem;line-height:1.6}
+
+/* home journal + footer */
+.jhome{padding-block:clamp(3rem,8vw,6rem)}
+.jhome .sh{margin-bottom:1.5rem}
+.sall{display:inline-flex;align-items:center;min-height:44px;color:var(--mut)}.sall:hover{color:var(--ink)}
+.jhome .bgrid{grid-template-columns:1fr}
+@media(min-width:900px){.jhome .bgrid{grid-template-columns:repeat(3,1fr)}.jhome .bgrid li:first-child{grid-column:auto}}
+footer.ft .wrap{align-items:center}
+.fl{display:flex;gap:1.25rem;flex-wrap:wrap}.fl a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}.fl a:hover{text-decoration:underline;text-underline-offset:3px}
+footer.ft .stat{background:var(--bg2);color:var(--ink);border:1px solid var(--line)}
