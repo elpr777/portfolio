@@ -429,3 +429,4 @@ footer.ft .fs{display:inline-flex;align-items:center;gap:.3rem}footer.ft .fi{wid
 @media(max-width:340px){html[lang=en] footer.ft .fi{display:none}}
 footer.ft .fs{gap:.2rem}footer.ft .fi{width:1em;height:1em}
 footer.ft .fs,footer.ft .fli,footer.ft .fn{color:var(--mut)}footer.ft .fs,footer.ft .fli{transition:color .2s}footer.ft .fs:hover,footer.ft .fli:hover{color:var(--ink)}
+footer.ft .fli{gap:.2rem}
