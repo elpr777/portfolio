@@ -1,0 +1,31 @@
+(window.BLOG=window.BLOG||[]).push({
+slug:"customer-trust-website-credibility",order:4,date:"2026-11-19",
+title:{ar:"ثقة العميل بتبدأ في أجزاء من الثانية: إيه اللي بيخليه يصدقك؟",en:"Customer Trust Starts in a Fraction of a Second: What Makes Them Believe You?"},
+kw:{ar:"ثقة العملاء في الموقع",en:"website trust and credibility"},
+desc:{ar:"إيه اللي بيبني ثقة العميل في موقعك: التصميم، الوضوح، بيانات التواصل، والأمان، بأبحاث من Stanford وCarleton وBaymard.",en:"What builds customer trust in your site: design, clarity, contact details and security, with research from Stanford, Carleton and Baymard."},
+mins:{ar:"6 دقايق",en:"6 min read"},
+hook:{ar:"العميل مش هيقرا «من نحن» عشان يقرر يثق فيك. هو بيحكم من شكل الصفحة قبل أي كلمة. والمشكلة إن الحكم ده بيتاخد بسرعة وبيتعدّل بصعوبة.",en:"A customer will not read your About page to decide whether to trust you. They judge from how the page looks before a single word. The problem: that verdict is formed fast and revised slowly."},
+answer:{ar:"ثقة العميل في الموقع بتتأثر بالتصميم أولًا ثم بوضوح المعلومات. في دراسة Stanford على 2,684 شخص، ذكر 46.1% «شكل التصميم» كسبب في تقييمهم لمصداقية الموقع، وهو أكتر سبب اتذكر. ودراسة Carleton لقت إن الناس بتكوّن حكم على جاذبية الصفحة في 50 ميلي ثانية.",en:"Customer trust in a site is shaped first by design, then by clarity of information. In a Stanford study of 2,684 people, 46.1% cited the look of the design when judging credibility, the most common reason. A Carleton study found people form a judgment of a page's appeal in 50 milliseconds."},
+body:[
+{t:"h",ar:"هل شكل الموقع فعلًا بيأثر على الثقة؟",en:"Does the look of a site really affect trust?"},
+{t:"stat",v:"46.1%",ar:"من التعليقات على مصداقية المواقع ذكرت «شكل التصميم» (Stanford، 2,684 مشارك قيّموا موقعين لكل واحد من 100 موقع).",en:"of comments about site credibility mentioned the design look (Stanford, 2,684 participants each rating two of 100 live sites).",s:0},
+{t:"p",ar:"الدراسة قديمة (2002) لكن لسه بتتذكر لأنها كشفت حاجة ثابتة: الناس بتقول إن المحتوى أهم، لكن بتحكم بالشكل. وده مش معناه إن الشكل يغني عن المحتوى. معناه إنه بوابة الدخول ليه.",en:"The study dates from 2002 but is still cited because it showed something durable: people say content matters most, yet judge by appearance. That does not mean looks replace content. It means looks are the gate to it."},
+{t:"h",ar:"ليه الانطباع الأول صعب يتغير؟",en:"Why is a first impression hard to change?"},
+{t:"p",ar:"دكتورة Lindgaard وفريقها في Carleton عرضوا صفحات لمدة 50 ميلي ثانية، ولقوا إن تقييم الجاذبية كان ثابت تقريبًا مقارنة بمدة أطول. الدراسة قاست الجاذبية البصرية مش الثقة مباشرة، لكن الباحثين وصفوا «تأثير الهالة»: الانطباع الأول بيتعدّى لأحكام أخرى زي سهولة الاستخدام والمصداقية.",en:"Dr. Lindgaard's Carleton team showed pages for 50 milliseconds and found appeal ratings stayed largely consistent with longer exposures. The study measured visual appeal, not trust directly, but the researchers describe a halo effect: the first impression carries over to other judgments such as usability and credibility."},
+{t:"h",ar:"إيه اللي بيهدم الثقة بسرعة؟",en:"What destroys trust quickly?"},
+{t:"p",ar:"في أبحاث Baymard عن أسباب ترك سلة الشراء، 19% من اللي سابوا لأسباب غير «بس بتفرج» قالوا إنهم ماوثقوش في الموقع ببيانات بطاقتهم، و17% قالوا الموقع فيه أخطاء أو وقع. وفي BrightLocal، 50% هيبعدوا عن نشاط بيانات التواصل على موقعه قديمة.",en:"In Baymard's research on why people abandon carts, 19% of those leaving for reasons other than just browsing did not trust the site with their card details, and 17% said the site had errors or crashed. In BrightLocal's research, 50% would be deterred by out-of-date contact details."},
+{t:"stat",v:"19%",ar:"من اللي تركوا السلة لسبب غير التصفح ماوثقوش في الموقع ببيانات بطاقتهم (Baymard).",en:"of shoppers who left a cart for reasons other than browsing did not trust the site with their card details (Baymard).",s:1},
+{t:"h",ar:"إزاي أبني ثقة في موقعي؟",en:"How do I build trust on my site?"},
+{t:"ol",ar:["تصميم نظيف وثابت: خط واحد واضح، ألوان محدودة، مسافات مريحة، وصور حقيقية بدل الصور الجاهزة العامة.","اقول من أنت: اسم وصورة ومدينة وطريقة تواصل حقيقية (تليفون، واتساب، إيميل بنطاق النشاط).","بيانات محدّثة: الأسعار والمواعيد والعنوان. راجعها كل فترة.","أدلة حقيقية: أعمال سابقة وآراء عملاء بأسمائهم بإذنهم، ومتألفش آراء.","أمان وشفافية: HTTPS، وسياسة خصوصية وإرجاع واضحة، وتكلفة كاملة قبل الدفع.","ما تسيبش أخطاء: اختبر النماذج والروابط على الموبايل قبل ما تنشر."],en:["Clean, consistent design: one clear typeface, a limited palette, comfortable spacing, and real photos instead of generic stock.","Say who you are: a name, a photo, a city and a real way to reach you (phone, WhatsApp, an email on your own domain).","Up-to-date details: prices, hours, address. Review them regularly.","Real proof: past work and customer quotes with names and permission. Never invent testimonials.","Security and transparency: HTTPS, a clear privacy and returns policy, and the full cost before payment.","No errors: test forms and links on mobile before publishing."]}
+],
+faq:[
+{q:{ar:"هل شهادة الأمان HTTPS كفاية عشان العميل يثق؟",en:"Is HTTPS enough for customers to trust me?"},a:{ar:"لا، دي حد أدنى. HTTPS بيحمي البيانات في الطريق، لكن الثقة بتتبني كمان بالتصميم والوضوح وبيانات التواصل الصحيحة وسياسات واضحة.",en:"No, it is the minimum. HTTPS protects data in transit, but trust is also built by design, clarity, correct contact details and clear policies."}},
+{q:{ar:"هل أضيف آراء عملاء لو معنديش؟",en:"Should I add testimonials if I have none?"},a:{ar:"متضيفش آراء مختلقة، ده بيضرك لو اتكشف. ابدأ بطلب رأي من 3 عملاء حقيقيين بإذنهم، أو اعرض نماذج أعمال بدلها.",en:"Do not add invented testimonials, it backfires if discovered. Ask three real customers for a quote with permission, or show work samples instead."}}
+],
+src:[
+{t:"Consumer Reports / Stanford — How do people evaluate a web site's credibility?",u:"https://advocacy.consumerreports.org/research/how-do-people-evaluate-a-web-sites-credibility"},
+{t:"Nature — Web users judge sites in the blink of an eye",u:"https://www.nature.com/news/2006/060109/full/news060109-13.html"},
+{t:"Baymard Institute — Cart abandonment rate statistics",u:"https://baymard.com/blog/cart-abandonment-rate-statistics"},
+{t:"BrightLocal — Local business websites research",u:"https://brightlocal.com/research/local-business-websites/"}
+]
+});

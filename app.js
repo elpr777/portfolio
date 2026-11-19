@@ -18,7 +18,7 @@ function header(){
  t.children[1].onclick=function(){TH=TH==="dark"?"light":"dark";save("ms2_theme",TH);root.dataset.theme=TH;render()};
  return h("header",{class:"top"+(location.hash.indexOf("#/p/")===0?"":" fx over")},[h("div",{class:"wrap"},[
   h("a",{href:"#/",class:"logo"},[h("img",{class:"me",src:"img/me.webp",alt:"",width:"40",height:"40"}),h("span",{text:X("محمد سيد","Muhammad Sayed")})]),
-  h("nav",{"aria-label":X("التنقل","Main")},[h("a",{href:"#/work",text:X("أعمال","Work")}),h("a",{href:"#/contact",text:X("تواصل","Contact")}),t])])])}
+  h("nav",{"aria-label":X("التنقل","Main")},[h("a",{href:"#/work",text:X("أعمال","Work")}),h("a",{href:"#/blog",text:X("المدوّنة","Journal")}),h("a",{href:"#/contact",text:X("تواصل","Contact")}),t])])])}
 function words(s,em){var i=0,out=[];s.split(" ").forEach(function(w){var isE=em&&w===em;var sp=h("span",{text:w});sp.style.setProperty("--i",i++);var wr=h("span",{class:"w"},[sp]);out.push(isE?h("em",null,[wr]):wr);out.push(" ")});return out}
 function strip(){var ul=h("ul",{class:"trk"});
  [0,1].forEach(function(d){D.P.forEach(function(p){var an={href:"#/p/"+p.id,"aria-label":P(p.n)};if(d){an["aria-hidden"]="true";an.tabindex="-1"}
@@ -104,10 +104,11 @@ function render(){var hash=location.hash.replace(/^#\/?/,""),pg=null,seg=hash.sp
  var skip=h("a",{class:"skip",href:"#main",text:X("تخطي للمحتوى","Skip to content")});
  skip.addEventListener("click",function(e){e.preventDefault();var m=document.getElementById("main");if(m){m.setAttribute("tabindex","-1");m.focus()}});
  if(seg[0]==="p"&&/^[a-z]+$/.test(seg[1]||""))pg=project(seg[1]);
- var body=pg?[pg]:[h("main",{id:"main"},[hero(),industries(),work(),testi(),contact()])];
+ var bl=null;if(seg[0]==="blog"&&window.BlogUI)bl=seg[1]&&/^[a-z0-9-]+$/.test(seg[1])?BlogUI.article(h,L,seg[1]):BlogUI.list(h,L);
+ var body=pg?[pg]:bl?[bl]:[h("main",{id:"main"},[hero(),industries(),work(),testi(),contact()])];
  app.appendChild(skip);app.appendChild(pb);app.appendChild(header());body.forEach(function(b){app.appendChild(b)});app.appendChild(footer());app.appendChild(pv);
- document.title=pg?P(D.P.find(function(p){return p.id===seg[1]}).n)+" | "+X("محمد سيد","Muhammad Sayed"):X("محمد سيد | مدير تصميم","Muhammad Sayed | Design Director");
+ document.title=bl?(seg[1]&&BlogUI.find(seg[1])?P(BlogUI.find(seg[1]).title)+" | ":X("المدوّنة | ","Journal | "))+X("محمد سيد","Muhammad Sayed"):pg?P(D.P.find(function(p){return p.id===seg[1]}).n)+" | "+X("محمد سيد","Muhammad Sayed"):X("محمد سيد | مدير تصميم","Muhammad Sayed | Design Director");
  reveal();prog();
- if(pg)window.scrollTo(0,0);else if(["work","contact"].indexOf(seg[0])>-1){var t=document.getElementById(seg[0]);if(t)t.scrollIntoView()}else window.scrollTo(0,0)}
+ if(pg)window.scrollTo(0,0);else if(bl)window.scrollTo(0,0);else if(["work","contact"].indexOf(seg[0])>-1){var t=document.getElementById(seg[0]);if(t)t.scrollIntoView()}else window.scrollTo(0,0)}
 addEventListener("hashchange",render);addEventListener("scroll",prog,{passive:true});addEventListener("resize",prog);
 render()})();
