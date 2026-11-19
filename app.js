@@ -16,7 +16,7 @@ function header(){
   h("button",{type:"button","aria-label":X("تبديل الوضع","Toggle theme"),"aria-pressed":TH==="dark"?"true":"false",text:TH==="dark"?"☾":"☀"})]);
  t.children[0].onclick=function(){L=L==="ar"?"en":"ar";save("ms2_lang",L);root.lang=L;root.dir=L==="ar"?"rtl":"ltr";render()};
  t.children[1].onclick=function(){TH=TH==="dark"?"light":"dark";save("ms2_theme",TH);root.dataset.theme=TH;render()};
- return h("header",{class:"top"+(location.hash.indexOf("#/p/")===0?"":" fx over")},[h("div",{class:"wrap"},[
+ return h("header",{class:"top"+(location.hash.indexOf("#/p/")===0||location.hash.indexOf("#/blog")===0?"":" fx over")},[h("div",{class:"wrap"},[
   h("a",{href:"#/",class:"logo"},[h("img",{class:"me",src:"img/me.webp",alt:"",width:"40",height:"40"}),h("span",{text:X("محمد سيد","Muhammad Sayed")})]),
   h("nav",{"aria-label":X("التنقل","Main")},[h("a",{href:"#/work",text:X("أعمال","Work")}),h("a",{href:"#/blog",text:X("المدوّنة","Journal")}),h("a",{href:"#/contact",text:X("تواصل","Contact")}),t])])])}
 function words(s,em){var i=0,out=[];s.split(" ").forEach(function(w){var isE=em&&w===em;var sp=h("span",{text:w});sp.style.setProperty("--i",i++);var wr=h("span",{class:"w"},[sp]);out.push(isE?h("em",null,[wr]):wr);out.push(" ")});return out}

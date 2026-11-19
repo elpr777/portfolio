@@ -381,7 +381,7 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 @media(min-width:900px){.bgrid{grid-template-columns:1fr 1fr}.bgrid li:first-child{grid-column:1/-1}}
 .art .wrap{max-width:46rem}
 .back{display:flex;width:fit-content;align-items:center;min-height:44px;color:var(--mut);margin-bottom:1rem}
-.art .meta{color:var(--mut);font-size:.9375rem;margin:0 0 2rem}
+.art .bmeta{color:var(--mut);font-size:.9375rem;margin:0 0 2rem}
 .art .hook{font-size:clamp(1.125rem,2vw,1.3125rem);line-height:1.85;margin:0 0 2rem}
 .ans{border-inline-start:4px solid var(--lem);background:var(--bg2);padding:1.25rem 1.5rem;border-radius:0 14px 14px 0;margin:0 0 2.5rem}
 [dir=rtl] .ans{border-radius:14px 0 0 14px}
@@ -391,10 +391,10 @@ box-shadow:0 1px 0 #fff inset,0 -2px 0 rgba(110,185,0,.5) inset,0 14px 30px -20p
 .prose p,.prose li{font-size:1.0625rem;line-height:1.9}
 .prose p{margin:0 0 1.15rem}
 .steps{padding-inline-start:1.4rem;margin:0 0 1.5rem}.steps li{margin-bottom:.65rem}
-.stat{display:grid;gap:.35rem;border:1px solid var(--line);border-radius:16px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.fig{display:grid;gap:.35rem;border:1px solid var(--line);border-radius:16px;padding:1.25rem 1.5rem;margin:1.5rem 0}
 .sv{font:400 clamp(2.5rem,7vw,4rem)/1.1 var(--fd);color:var(--ink);unicode-bidi:isolate}
 [data-theme=dark] .sv{color:var(--lem)}
-.stat p{margin:0;color:var(--mut);font-size:1rem;line-height:1.75}
+.fig p{margin:0;color:var(--mut);font-size:1rem;line-height:1.75}
 .faq,.srcs{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem}
 .faq h2,.srcs h2{font:600 1.25rem/1.4 var(--fb);margin:0 0 1rem}
 .faq details{border-bottom:1px solid var(--line)}
