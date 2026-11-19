@@ -118,3 +118,5 @@ p,li,dd,summary,label,.d{text-wrap:pretty}
 .stat:nth-child(1){background:var(--blue);color:#fff}
 .stat:nth-child(2){border-color:var(--line)}
 [data-theme=dark] .top,[data-theme=dark] .btn--p,[data-theme=dark] .nav a[aria-current=page],[data-theme=dark] .stat:nth-child(1),[data-theme=dark] .seatb:hover{background:#1f6fe0;color:#fff;border-color:#1f6fe0}
+img{object-fit:cover;object-position:center 30%}
+img{block-size:auto}
