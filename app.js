@@ -62,6 +62,8 @@ function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-
  pv.onclick=function(){slide(-1)};nx.onclick=function(){slide(1)};
  return h("section",{id:"testimonials"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("آراء العملاء","Testimonials")})]),tr,
   h("div",{class:"tctl"},[h("div",{class:"arr",dir:"ltr"},[pv,nx]),null])])])}
+function numbers(){function stat(n,line,src){return h("div",{class:"stt"},[h("b",{text:n,dir:"ltr"}),h("p",{text:line}),h("small",{text:src,dir:"ltr"})])}
+ return h("section",{id:"numbers",class:"numbers"},[h("div",{class:"wrap"},[h("div",{class:"stats rv"},[stat("50ms",X("هو كل اللي الزائر محتاجه عشان يحكم على شكل موقعك.","is all a visitor needs to judge how your website looks."),"Lindgaard et al. \u00B7 Carleton University \u00B7 2006"),stat("+8.4%",X("تحويل أعلى في المتاجر لما سرعة الموبايل تتحسن 0.1 ثانية بس.","higher retail conversion from just a 0.1s faster mobile site."),"Deloitte \u00D7 Google \u00B7 Milliseconds Make Millions")])])])}
 function blogHome(){if(!window.BlogUI)return null;var cards=BlogUI.all.slice(0,3);
  return h("section",{id:"journal",class:"jhome"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("المدوّنة","Journal")}),h("a",{class:"sall",href:"#/blog",text:X("كل المقالات \u2192","All articles \u2192")})]),
   h("ol",{class:"bgrid rv"},cards.map(function(c,k){return h("li",null,[h("a",{class:"bcard",href:"#/blog/"+c.slug},[h("span",{class:"bn",text:String(k+1).padStart(2,"0")}),h("span",{class:"bt",text:P(c.title)}),h("span",{class:"bm",text:P(c.mins)})])])}))])])}
@@ -104,7 +106,7 @@ function render(){var hash=location.hash.replace(/^#\/?/,""),pg=null,seg=hash.sp
  skip.addEventListener("click",function(e){e.preventDefault();var m=document.getElementById("main");if(m){m.setAttribute("tabindex","-1");m.focus()}});
  if(seg[0]==="p"&&/^[a-z]+$/.test(seg[1]||""))pg=project(seg[1]);
  var bl=null;if(seg[0]==="blog"&&window.BlogUI)bl=seg[1]&&/^[a-z0-9-]+$/.test(seg[1])?BlogUI.article(h,L,seg[1]):BlogUI.list(h,L);
- var body=pg?[pg]:bl?[bl]:[h("main",{id:"main"},[hero(),industries(),work(),testi(),blogHome()])];
+ var body=pg?[pg]:bl?[bl]:[h("main",{id:"main"},[hero(),industries(),work(),testi(),numbers(),blogHome()])];
  app.appendChild(skip);app.appendChild(pb);app.appendChild(header());body.forEach(function(b){app.appendChild(b)});app.appendChild(footer());app.appendChild(pv);
  document.title=bl?(seg[1]&&BlogUI.find(seg[1])?P(BlogUI.find(seg[1]).title)+" | ":X("المدوّنة | ","Journal | "))+X("محمد سيد","Muhammad Sayed"):pg?P(D.P.find(function(p){return p.id===seg[1]}).n)+" | "+X("محمد سيد","Muhammad Sayed"):X("محمد سيد | مدير تصميم","Muhammad Sayed | Design Director");
  reveal();prog();
