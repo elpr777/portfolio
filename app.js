@@ -69,8 +69,7 @@ function blogHome(){if(!window.BlogUI)return null;var cards=BlogUI.all.slice(0,3
   h("ol",{class:"bgrid rv"},cards.map(function(c,k){return h("li",null,[h("a",{class:"bcard",href:"#/blog/"+c.slug},[h("span",{class:"bn",text:String(k+1).padStart(2,"0")}),h("span",{class:"bt",text:P(c.title)}),h("span",{class:"bm",text:P(c.mins)})])])}))])])}
 var SUP="https://wa.me/201012203073";
 function footer(){var li=safeUrl(C.linkedin||"");
- return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn",text:"\u00A9 2026 "+X("محمد سيد","Muhammad Sayed")}),ext(SUP,"fs",[h("span",{text:X("دعم","Support")})]),
-  li?ext(li,"fli",[h("span",{text:"LinkedIn \u2197"})]):null])])}
+ return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn",text:"\u00A9 2026 "+X("محمد سيد","Muhammad Sayed")}),h("div",{class:"fr"},[li?ext(li,"fli",[h("span",{text:"LinkedIn \u2197"})]):null,ext(SUP,"fs",[h("span",{text:X("دعم","Support")})])])])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
 function viewer(p){var src="sites/"+p.id+"/index.html",mode="d",full=false;
