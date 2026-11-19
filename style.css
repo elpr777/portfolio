@@ -428,3 +428,4 @@ footer.ft .fg{grid-template-columns:auto 1fr auto}footer.ft .fn{grid-column:auto
 footer.ft .fs{display:inline-flex;align-items:center;gap:.3rem}footer.ft .fi{width:1rem;height:1rem;flex:none}@media(max-width:380px){footer.ft .fi{width:.875rem;height:.875rem}footer.ft .fs{gap:.2rem}}
 @media(max-width:340px){html[lang=en] footer.ft .fi{display:none}}
 footer.ft .fs{gap:.2rem}footer.ft .fi{width:1em;height:1em}
+footer.ft .fs,footer.ft .fli,footer.ft .fn{color:var(--mut)}footer.ft .fs,footer.ft .fli{transition:color .2s}footer.ft .fs:hover,footer.ft .fli:hover{color:var(--ink)}
