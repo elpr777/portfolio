@@ -68,8 +68,9 @@ function blogHome(){if(!window.BlogUI)return null;var cards=BlogUI.all.slice(0,3
  return h("section",{id:"journal",class:"jhome"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("المدوّنة","Journal")}),h("a",{class:"sall",href:"#/blog",text:X("كل المقالات \u2192","All articles \u2192")})]),
   h("ol",{class:"bgrid rv"},cards.map(function(c,k){return h("li",null,[h("a",{class:"bcard",href:"#/blog/"+c.slug},[h("span",{class:"bn",text:String(k+1).padStart(2,"0")}),h("span",{class:"bt",text:P(c.title)}),h("span",{class:"bm",text:P(c.mins)})])])}))])])}
 var SUP="https://wa.me/201012203073";
+function ico(){var N="http://www.w3.org/2000/svg",s=document.createElementNS(N,"svg"),p=document.createElementNS(N,"path");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("aria-hidden","true");s.setAttribute("class","fi");p.setAttribute("d","M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z");p.setAttribute("fill","currentColor");s.appendChild(p);return s}
 function footer(){var li=safeUrl(C.linkedin||"");
- return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn"},[h("span",{class:"yr",text:"\u00A9 2026 "}),X("محمد سيد","Muhammad Sayed")]),h("div",{class:"fr"},[li?ext(li,"fli",[h("span",{text:"LinkedIn"}),h("span",{class:"ar",text:" \u2197"})]):null,ext(SUP,"fs",[h("span",{text:X("دعم","Support")})])])])])}
+ return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn"},[h("span",{class:"yr",text:"\u00A9 2026 "}),X("محمد سيد","Muhammad Sayed")]),h("div",{class:"fr"},[li?ext(li,"fli",[h("span",{text:X("لينكدإن","LinkedIn")}),h("span",{class:"ar",text:" \u2197"})]):null,ext(SUP,"fs",[ico(),h("span",{text:X("دعم","Support")})])])])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
 function viewer(p){var src="sites/"+p.id+"/index.html",mode="d",full=false;
