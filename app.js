@@ -65,9 +65,10 @@ function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-
 function blogHome(){if(!window.BlogUI)return null;var cards=BlogUI.all.slice(0,3);
  return h("section",{id:"journal",class:"jhome"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("المدوّنة","Journal")}),h("a",{class:"sall",href:"#/blog",text:X("كل المقالات \u2192","All articles \u2192")})]),
   h("ol",{class:"bgrid rv"},cards.map(function(c,k){return h("li",null,[h("a",{class:"bcard",href:"#/blog/"+c.slug},[h("span",{class:"bn",text:String(k+1).padStart(2,"0")}),h("span",{class:"bt",text:P(c.title)}),h("span",{class:"bm",text:P(c.mins)})])])}))])])}
-function footer(){var links=[h("a",{href:"mailto:"+C.email,text:X("إيميل","Email")})];
- var li=safeUrl(C.linkedin||"");if(li)links.push(ext(li,null,[h("span",{text:"LinkedIn \u2197"})]));
- return h("footer",{class:"ft"},[h("div",{class:"wrap"},[h("span",{text:"\u00A9 2026 "+X("محمد سيد","Muhammad Sayed")}),h("nav",{class:"fl","aria-label":X("تواصل","Contact")},links),status(),h("span",{text:X("القاهرة","Cairo")})])])}
+var SUP="https://wa.me/201012203073";
+function footer(){var li=safeUrl(C.linkedin||"");
+ return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn",text:"\u00A9 2026 "+X("محمد سيد","Muhammad Sayed")}),ext(SUP,"fs",[h("span",{text:X("دعم","Support")})]),
+  li?ext(li,"fli",[h("span",{text:"LinkedIn \u2197"})]):null])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
 function viewer(p){var src="sites/"+p.id+"/index.html",mode="d",full=false;
