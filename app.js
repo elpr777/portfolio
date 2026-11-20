@@ -73,27 +73,47 @@ function footer(){var li=safeUrl(C.linkedin||"");
  return h("footer",{class:"ft"},[h("div",{class:"wrap fg"},[status(),h("span",{class:"fn"},[h("span",{class:"yr",text:"\u00A9 2026 "}),X("محمد سيد","Muhammad Sayed")]),h("div",{class:"fr"},[li?ext(li,"fli",L==="ar"?[h("span",{class:"ar",text:"\u2197"}),h("span",{text:"لينكدإن"})]:[h("span",{text:"LinkedIn"}),h("span",{class:"ar",text:"\u2197"})]):null,ext(SUP,"fs",[ico(),h("span",{text:X("دعم","Support")})])])])])}
 var TG={Dev:"Development",WP:"WordPress"};
 var LOCAL={nile:1,afanin:1,saraya:1,aurelle:1,haze:1,rokn:1,plink:1,meftah:1,nabd:1,sar:1,masar:1};
-function viewer(p){var src="sites/"+p.id+"/index.html",mode="d",full=false;
+function viewer(p,ov,back){var src="sites/"+p.id+"/index.html",mode="d",full=!!ov;
  var fr=h("iframe",{class:"vf",src:src,title:P(p.n),loading:"lazy",sandbox:"allow-scripts allow-same-origin allow-forms allow-popups",referrerpolicy:"no-referrer"});
  var box=h("div",{class:"vbox d"},[fr]);
- var bd=h("button",{type:"button",class:"vb on","aria-pressed":"true",text:X("ديسكتوب","Desktop")}),bm=h("button",{type:"button",class:"vb","aria-pressed":"false",text:X("موبايل","Mobile")}),bf=h("button",{type:"button",class:"vb",text:X("ملء الشاشة","Full screen")});
- var wrap=h("div",{class:"viewer"},[h("div",{class:"vbar"},[bar(),h("div",{class:"vtabs"},[bd,bm,bf])]),box]);
+ var bd=h("button",{type:"button",class:"vb on","aria-pressed":"true",text:X("ديسكتوب","Desktop")}),bm=h("button",{type:"button",class:"vb","aria-pressed":"false",text:X("موبايل","Mobile")}),bf=h("button",{type:"button",class:"vb",text:ov?X("إغلاق","Close"):X("ملء الشاشة","Full screen")});
+ var tabs=[bd,bm];if(ov)tabs.push(h("a",{class:"vb",href:src,target:"_blank",rel:"noopener",text:X("تبويب جديد ↗","New tab ↗")}));tabs.push(bf);
+ var wrap=h("div",{class:"viewer"+(ov?" full":"")},[h("div",{class:"vbar"},[bar(),h("div",{class:"vtabs"},tabs)]),box]);
+ if(ov){wrap.setAttribute("role","dialog");wrap.setAttribute("aria-modal","true");wrap.setAttribute("aria-label",P(p.n));document.documentElement.classList.add("nos")}
  function set(m){mode=m;box.className="vbox "+m;bd.classList.toggle("on",m==="d");bm.classList.toggle("on",m==="m");bd.setAttribute("aria-pressed",String(m==="d"));bm.setAttribute("aria-pressed",String(m==="m"))}
- function fs(f){full=f;wrap.classList.toggle("full",f);bf.textContent=f?X("إغلاق","Close"):X("ملء الشاشة","Full screen");document.documentElement.classList.toggle("nos",f)}
+ function close(){removeEventListener("keydown",key);wrap.remove();document.documentElement.classList.remove("nos");if(back)back.focus()}
+ function fs(f){if(ov){close();return}full=f;wrap.classList.toggle("full",f);bf.textContent=f?X("إغلاق","Close"):X("ملء الشاشة","Full screen");document.documentElement.classList.toggle("nos",f)}
+ function key(e){if(e.key==="Escape"&&full)fs(false)}
  bd.onclick=function(){set("d")};bm.onclick=function(){set("m")};bf.onclick=function(){fs(!full)};
- addEventListener("keydown",function(e){if(e.key==="Escape"&&full)fs(false)});
+ addEventListener("keydown",key);
+ if(ov)setTimeout(function(){bf.focus()},0);
  return wrap}
-function project(id){var i=D.P.findIndex(function(p){return p.id===id});if(i<0)return null;var p=D.P[i],n=D.P[(i+1)%D.P.length];
- var btns=[ext(p.u,"btn p",[h("span",{text:X("افتح الموقع ↗","Visit live site ↗")})])];if(p.id==="sar"&&safeUrl(CASE))btns.push(ext(CASE,"btn o",[h("span",{text:X("دراسة الحالة ↗","Case study ↗")})]));
- return h("main",{id:"main",class:"pp"},[h("div",{class:"wrap"},[
+function openLive(p,btn){document.body.appendChild(viewer(p,true,btn))}
+function sw(c){var s=h("span",{class:"sw"});s.style.setProperty("background",c);return h("li",{},[s,h("bdi",{class:"hx",text:c})])}
+function sec(k,kids){return h("section",{class:"csec"},[h("h2",{text:k})].concat(kids))}
+function project(id){var i=D.P.findIndex(function(p){return p.id===id});if(i<0)return null;var p=D.P[i],n=D.P[(i+1)%D.P.length],c=(window.CS||{})[id]||null;
+ function live(cls){var b=h("button",{type:"button",class:"btn "+cls},[h("span",{text:X("افتح الموقع المباشر ↗","Open the live site ↗")})]);b.onclick=function(){openLive(p,b)};return b}
+ var btns=[live("p")];if(p.id==="sar"&&safeUrl(CASE))btns.push(ext(CASE,"btn o",[h("span",{text:X("دراسة الحالة الكاملة ↗","Full case study ↗")})]));
+ var kids=[
   h("a",{class:"back",href:"#/work"},[h("span",{text:X("→ كل الأعمال","← All work")})]),
+  h("p",{class:"kick2",text:X("دراسة حالة","Case study")}),
   h("h1",{text:P(p.n)}),
   h("p",{class:"sub",text:P(p.s)}),
   h("p",{class:"lead",text:P(p.d)}),
-  h("p",{class:"tags",text:p.t.map(function(t){return TG[t]||t}).join(" \u00B7 ")}),
   h("div",{class:"btns"},btns),
-  LOCAL[p.id]?viewer(p):h("div",{class:"stage"},[h("div",{class:"frame"},[bar(),h("img",{src:"img/"+p.id+"-d.webp",alt:X("لقطة من موقع ","Screenshot of ")+P(p.n),width:"1280",height:"800"})]),h("div",{class:"phone"},[h("img",{src:"img/"+p.id+"-m.webp",alt:X("نسخة الموبايل","Mobile view"),width:"520",height:"1100"})])]),
-  h("div",{class:"next"},[h("span",{class:"chip",text:X("التالي","Next")}),h("a",{href:"#/p/"+n.id,text:P(n.n)+" →"})])])])}
+  h("div",{class:"stage"},[h("div",{class:"frame"},[bar(),h("img",{src:"img/"+p.id+"-d.webp",alt:X("لقطة من موقع ","Screenshot of ")+P(p.n),width:"1280",height:"800"})]),h("div",{class:"phone"},[h("img",{src:"img/"+p.id+"-m.webp",alt:X("نسخة الموبايل","Mobile view"),width:"520",height:"1100"})])])];
+ if(c){
+  var rows=[[X("الدور","Role"),p.t.map(function(t){return TG[t]||t}).join(" \u00B7 ")],[X("النوع","Type"),X("مشروع تصميمي، محتوى تخيلي","Design project, fictional content")],[X("اللغات","Languages"),X("عربي \u00B7 إنجليزي","Arabic \u00B7 English")],[X("الوضع","Modes"),X("فاتح \u00B7 داكن","Light \u00B7 Dark")]];
+  kids.push(h("dl",{class:"facts"},rows.map(function(r){return h("div",{},[h("dt",{text:r[0]}),h("dd",{text:r[1]})])})));
+  kids.push(sec(X("الفكرة","The brief"),[h("p",{class:"cp",text:P(c.brief)})]));
+  kids.push(sec(X("البحث","Research"),[h("p",{class:"cp",text:P(c.research)})]));
+  kids.push(sec(X("قرارات التصميم","Design decisions"),[h("div",{class:"cdecs"},c.dec.map(function(d){return h("article",{class:"cdec"},[h("h3",{text:P(d[0])}),h("p",{text:P(d[1])})])}))]));
+  if(c.pal.length||c.fonts){var vs=[];if(c.pal.length)vs.push(h("ul",{class:"sws"},c.pal.map(sw)));if(c.fonts)vs.push(h("p",{class:"cp fonts"},[h("bdi",{text:c.fonts})]));kids.push(sec(X("النظام البصري","Visual system"),vs))}
+  kids.push(sec(X("ما بداخل الموقع","Inside the site"),[h("ul",{class:"cfeat"},c.feat.map(function(f){return h("li",{text:P(f)})}))]));
+  if(c.q)kids.push(sec(X("الجودة والأمان","Quality and security"),[h("p",{class:"cp",text:X("جرى فحصه بالعربية والإنجليزية، فاتح وداكن، على الموبايل والتابلت والديسكتوب. سياسة أمان صارمة للمحتوى بلا سكربتات داخلية، والمدخلات تُفحص قبل استخدامها.","Checked in Arabic and English, light and dark, on mobile, tablet and desktop. A strict content-security policy with no inline scripts, and every input is validated before use.")})]));
+  kids.push(h("div",{class:"btns cend"},[live("p")]))}
+ kids.push(h("div",{class:"next"},[h("span",{class:"chip",text:X("التالي","Next")}),h("a",{href:"#/p/"+n.id,text:P(n.n)+" →"})]));
+ return h("main",{id:"main",class:"pp cs"},[h("div",{class:"wrap"},kids)])}
 document.addEventListener("touchstart",function(){},{passive:true});
 function reveal(){var els=[].slice.call(document.querySelectorAll(".rv"));if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("in")});return}
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2,rootMargin:"0px 0px -14% 0px"});els.forEach(function(e){io.observe(e)})}
