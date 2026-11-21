@@ -469,3 +469,7 @@ footer.ft .fli{gap:.2rem}
 .pk svg{inline-size:1rem;block-size:1rem}
 @media(max-width:900px){.pkl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.pkl{grid-template-columns:1fr;gap:0}}
+
+/* v8: strip text uses plain theme ink (no background-clip trick, which kept the light-mode colour on some phones after switching theme) */
+.ind li,[data-theme=dark] .ind li{color:var(--ink);-webkit-text-fill-color:var(--ink);background:none;-webkit-background-clip:border-box;background-clip:border-box}
+.ind li::after,[data-theme=dark] .ind li::after{border-color:var(--ink)}
