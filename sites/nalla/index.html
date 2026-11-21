@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nalla — Grow your money. Keep your calm.</title>
+<meta name="description" content="nalla builds you a low-risk portfolio from day one. Set it, add a little each month, let compounding do the quiet work.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23E6E84E'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='38' font-weight='700' text-anchor='middle' fill='%23202200'%3En%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-in">
+    <a class="brand" href="#top" aria-label="nalla">
+      <span class="brand-mark" data-i18n="brand_mark">n</span>
+      <span class="brand-word" data-i18n="brand_word">nalla</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#why" data-i18n="nav_why">Why nalla</a>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#safety" data-i18n="nav_safety">Safety</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="Theme"><span class="material-symbols-rounded">light_mode</span></button>
+      <div class="lang-seg" role="group" aria-label="Language">
+        <button class="lang-btn sel" id="langEn" aria-pressed="true">EN</button>
+        <button class="lang-btn" id="langAr" aria-pressed="false">عربي</button>
+      </div>
+      <a class="btn btn-filled btn-sm nav-cta" href="#cta" data-i18n="nav_cta">Get early access</a>
+      <button class="ibtn menu-btn" id="menuBtn" aria-label="Menu"><span class="material-symbols-rounded" id="menuIco">menu</span></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#why" data-i18n="nav_why">Why nalla</a>
+    <a href="#how" data-i18n="nav_how">How it works</a>
+    <a href="#safety" data-i18n="nav_safety">Safety</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    <a class="btn btn-filled" href="#cta" data-i18n="nav_cta">Get early access</a>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="badge" data-i18n="hero_badge">Low-risk investing for real life</span>
+      <h1 class="h1" data-i18n-html="hero_h1">Grow your money.<br>Keep your <em class="hl">calm.<svg class="scribble" viewBox="0 0 220 26" preserveAspectRatio="none" aria-hidden="true"><path d="M6 17 C 42 7, 86 23, 128 13 C 160 6, 190 11, 214 8" pathLength="1"/></svg></em></h1>
+      <p class="lead hero-sub" data-i18n="hero_sub">nalla builds you a low-risk portfolio from day one — money-market funds and short-term bonds, nothing spicy. Set it once, add a little each month, and let compounding do the quiet work.</p>
+      <div class="cta-row">
+        <a class="btn btn-filled" href="#cta"><span data-i18n="hero_cta1">Get early access</span><span class="material-symbols-rounded icon-flip">arrow_forward</span></a>
+        <a class="btn btn-tonal" href="#how" data-i18n="hero_cta2">See how it works</a>
+      </div>
+      <div class="hero-chips">
+        <span class="hchip"><span class="material-symbols-rounded">check</span><span data-i18n="hero_m1">Start with $10</span></span>
+        <span class="hchip"><span class="material-symbols-rounded">check</span><span data-i18n="hero_m2">Withdraw anytime</span></span>
+      </div>
+      <div class="proof">
+        <div class="avatars" aria-hidden="true"><span class="av1">S</span><span class="av2">K</span><span class="av3">L</span></div>
+        <p><b><span id="wlNum">0</span>+</b> <span data-i18n="hero_proof">people are already in line</span></p>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- MD3 rosette motif -->
+      <svg class="rosette" viewBox="0 0 200 200" aria-hidden="true">
+        <g fill="var(--primary)" opacity=".1">
+          <circle cx="152" cy="100" r="30"/><circle cx="145" cy="126" r="30"/><circle cx="126" cy="145" r="30"/>
+          <circle cx="100" cy="152" r="30"/><circle cx="74" cy="145" r="30"/><circle cx="55" cy="126" r="30"/>
+          <circle cx="48" cy="100" r="30"/><circle cx="55" cy="74" r="30"/><circle cx="74" cy="55" r="30"/>
+          <circle cx="100" cy="48" r="30"/><circle cx="126" cy="55" r="30"/><circle cx="145" cy="74" r="30"/>
+          <circle cx="100" cy="100" r="56"/>
+        </g>
+      </svg>
+
+      <div class="phone-wrap">
+        <!-- floating chips -->
+        <div class="pchip chip-a"><span class="ic"><span class="material-symbols-rounded">north_east</span></span><span><b>+7.1%</b><small data-i18n="chip_a_l">past 12 months</small></span></div>
+        <div class="pchip chip-b"><span class="ic"><span class="material-symbols-rounded">shield</span></span><span data-i18n="chip_b">Risk: Low</span></div>
+        <div class="pchip chip-c"><span class="ic"><span class="material-symbols-rounded">bolt</span></span><span data-i18n="chip_c">Auto-save moved $6.20 today</span></div>
+
+        <!-- phone mockup -->
+        <div class="phone">
+          <div class="p-punch"></div>
+          <div class="screen">
+            <div class="p-status"><span>9:41</span><span class="ic"><span class="material-symbols-rounded">wifi</span><span class="material-symbols-rounded">battery_full</span></span></div>
+            <div class="p-head">
+              <div>
+                <div class="p-greet" data-i18n="ph_greet">Good morning, Sara</div>
+                <div class="p-label" data-i18n="ph_label">Total balance</div>
+              </div>
+              <div class="p-ava">S</div>
+            </div>
+            <div class="p-balance">$24,318<small>.62</small></div>
+            <div class="p-delta"><span class="material-symbols-rounded">trending_up</span>+$1,586 <span data-i18n="ph_thisyear">this year</span></div>
+            <svg class="p-chart" viewBox="0 0 260 96" preserveAspectRatio="none" aria-hidden="true">
+              <path class="p-area" d="M0,84 C18,82 28,74 42,72 C58,70 66,76 82,67 C98,58 108,61 124,52 C140,43 152,47 168,37 C184,27 198,31 214,21 C228,13 244,15 252,10 L252,96 L0,96 Z"/>
+              <path class="p-line" pathLength="1" d="M0,84 C18,82 28,74 42,72 C58,70 66,76 82,67 C98,58 108,61 124,52 C140,43 152,47 168,37 C184,27 198,31 214,21 C228,13 244,15 252,10"/>
+              <circle class="p-dot" cx="252" cy="10" r="4"/>
+            </svg>
+            <div class="p-actions">
+              <div class="p-act"><i><span class="material-symbols-rounded">add</span></i><span data-i18n="ph_add">Add</span></div>
+              <div class="p-act"><i><span class="material-symbols-rounded">trending_up</span></i><span data-i18n="ph_invest">Invest</span></div>
+              <div class="p-act"><i><span class="material-symbols-rounded">flag</span></i><span data-i18n="ph_goals">Goals</span></div>
+              <div class="p-act"><i><span class="material-symbols-rounded">apps</span></i><span data-i18n="ph_more">More</span></div>
+            </div>
+            <div class="p-goal">
+              <svg class="ring" viewBox="0 0 60 60" aria-hidden="true">
+                <circle class="ring-bg" cx="30" cy="30" r="24"/>
+                <circle class="ring-fg" cx="30" cy="30" r="24" transform="rotate(-90 30 30)"/>
+              </svg>
+              <div><b data-i18n="ph_goal_t">Rainy-day fund</b><span>$4,080 / $6,000</span></div>
+              <span class="pct">68%</span>
+            </div>
+            <div class="p-nav">
+              <span class="material-symbols-rounded on">home</span>
+              <span class="material-symbols-rounded">insights</span>
+              <span class="material-symbols-rounded">person</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="tk-set">
+      <span class="tk" data-i18n="tk1">Nour just hit her first $10K</span>
+      <span class="tk" data-i18n="tk2">Omar withdrew — landed in 26 seconds</span>
+      <span class="tk" data-i18n="tk3">Lina switched on round-ups on 3 cards</span>
+      <span class="tk" data-i18n="tk4">Khalid's emergency fund reached 100%</span>
+      <span class="tk" data-i18n="tk5">2,314 calm investors joined this week</span>
+      <span class="tk" data-i18n="tk6">Sara auto-saved $340 last month without noticing</span>
+    </div>
+    <div class="tk-set">
+      <span class="tk" data-i18n="tk1">Nour just hit her first $10K</span>
+      <span class="tk" data-i18n="tk2">Omar withdrew — landed in 26 seconds</span>
+      <span class="tk" data-i18n="tk3">Lina switched on round-ups on 3 cards</span>
+      <span class="tk" data-i18n="tk4">Khalid's emergency fund reached 100%</span>
+      <span class="tk" data-i18n="tk5">2,314 calm investors joined this week</span>
+      <span class="tk" data-i18n="tk6">Sara auto-saved $340 last month without noticing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= WHY / BENTO ================= -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="sec-head split">
+      <div>
+        <span class="kicker" data-i18n="why_kicker">Why nalla</span>
+        <h2 class="h2" data-i18n="why_h2">Built to grow. Designed to protect.</h2>
+      </div>
+      <p class="lead" data-i18n="why_sub">Everything here exists for one reason: so you never have to choose between growing your money and sleeping well.</p>
+    </div>
+
+    <div class="bento">
+      <!-- Simulator -->
+      <div class="tile tile-sim reveal">
+        <h3 class="h3" data-i18n="sim_t">See your future, roughly</h3>
+        <p class="tile-sub" data-i18n="sim_s">Drag the slider, try the timelines. This is what steady, low-risk compounding looks like.</p>
+        <div class="sim-controls">
+          <div class="sim-slider">
+            <div class="sim-lbl-row">
+              <span data-i18n="sim_lbl">Monthly auto-invest</span>
+              <b id="simVal" dir="ltr">$150</b>
+            </div>
+            <input type="range" id="simRange" min="25" max="1000" step="5" value="150" aria-label="Monthly amount">
+          </div>
+          <div class="seg" role="group" aria-label="Timeline">
+            <button data-years="3" data-i18n="sim_y3">3 years</button>
+            <button data-years="5" class="sel" data-i18n="sim_y5">5 years</button>
+            <button data-years="10" data-i18n="sim_y10">10 years</button>
+          </div>
+        </div>
+        <svg class="sim-chart" id="simChart" viewBox="0 0 560 250" preserveAspectRatio="none">
+          <g class="sim-grid" id="simGrid"></g>
+          <path class="sim-area" id="simArea"/>
+          <path class="sim-contrib" id="simContrib"/>
+          <path class="sim-line" id="simLine"/>
+          <circle class="sim-halo" id="simHalo" r="9"/>
+          <circle class="sim-end" id="simEnd" r="5"/>
+        </svg>
+        <div class="sim-out">
+          <div><span class="sim-ol" data-i18n="sim_out_lbl">Projected balance</span><b class="sim-big" id="simFinal">$0</b></div>
+          <div class="sim-div"></div>
+          <div><span class="sim-ol" data-i18n="sim_growth_lbl">Pure growth</span><b class="sim-grow" id="simGrowth">$0</b></div>
+        </div>
+        <div class="sim-legend">
+          <span><i class="lg-total"></i><span data-i18n="sim_leg1">Total balance</span></span>
+          <span><i class="lg-contrib"></i><span data-i18n="sim_leg2">Contributions</span></span>
+        </div>
+        <p class="sim-foot" data-i18n="sim_foot">Illustrative at a modeled 5.8% annual return, compounded monthly. Not a promise — markets aren't vending machines.</p>
+      </div>
+
+      <!-- Fee -->
+      <div class="tile tile-fee reveal" style="--d:.08s">
+        <h3 class="h3" data-i18n="fee_t">One flat fee.</h3>
+        <div class="fee-rate"><b>0.89%</b><span data-i18n="fee_per">/year</span></div>
+        <p class="fee-s" data-i18n="fee_s">That's the entire pricing page.</p>
+        <ul class="fee-list">
+          <li><span class="material-symbols-rounded">check_circle</span><span data-i18n="fee_f1">No withdrawal fees</span></li>
+          <li><span class="material-symbols-rounded">check_circle</span><span data-i18n="fee_f2">No trading fees</span></li>
+          <li><span class="material-symbols-rounded">check_circle</span><span data-i18n="fee_f3">No minimum balance</span></li>
+        </ul>
+      </div>
+
+      <!-- Volatility -->
+      <div class="tile tile-vol reveal" style="--d:.14s">
+        <h3 class="h3" data-i18n="vol_t">Boring, on purpose</h3>
+        <p class="tile-sub" data-i18n="vol_s">Typical year-to-year swings</p>
+        <div class="vbars">
+          <div class="vrow"><span class="vlab" data-i18n="vol_l1">Crypto</span><div class="vbar"><i style="--w:100%"></i></div><b dir="ltr">±61%</b></div>
+          <div class="vrow"><span class="vlab" data-i18n="vol_l2">Single stocks</span><div class="vbar"><i style="--w:32%"></i></div><b dir="ltr">±18%</b></div>
+          <div class="vrow me"><span class="vlab" data-i18n="vol_l3">nalla mix</span><div class="vbar"><i style="--w:8%"></i></div><b dir="ltr">±3.9%</b></div>
+        </div>
+        <p class="vfoot" data-i18n="vol_cap">Less drama. Far fewer 3 a.m. portfolio checks.</p>
+      </div>
+
+      <!-- Round-ups -->
+      <div class="tile tile-save reveal" id="saveTile">
+        <div>
+          <h3 class="h3" data-i18n="save_t">Save money by accident</h3>
+          <p class="tile-sub">Every purchase rounds up to the next dollar and the spare change slides into your portfolio.</p>
+          <div class="save-row">
+            <span class="save-chip"><span class="material-symbols-rounded">local_cafe</span><span data-i18n="save_d1">Coffee — $4.60</span></span>
+            <span class="material-symbols-rounded icon-flip">arrow_forward</span>
+            <span class="save-chip lemon" data-i18n="save_d2">+$0.40 to nalla</span>
+          </div>
+        </div>
+        <div class="save-side">
+          <button class="switch on" id="roundSw" role="switch" aria-checked="true" aria-label="Round-ups"></button>
+          <span data-i18n="save_sw">Round-ups</span>
+        </div>
+      </div>
+
+      <!-- Withdraw -->
+      <div class="tile tile-with reveal" style="--d:.08s">
+        <div class="wd-copy">
+          <h3 class="h3" data-i18n="wd_t">Your money answers to you</h3>
+          <p class="tile-sub">No lock-ins, no exit interviews. One tap and it's on the way back to your bank.</p>
+        </div>
+        <div class="wd-demo">
+          <div class="wd-amt"><span class="material-symbols-rounded">account_balance_wallet</span><b>$200.00</b></div>
+          <button class="btn btn-tonal" id="wdBtn"><span data-i18n="wd_btn">Try a demo withdrawal</span></button>
+          <div class="wd-line" id="wdLine" hidden>
+            <span class="material-symbols-rounded" id="wdIco">progress_activity</span>
+            <span id="wdTxt"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section id="how" class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="kicker" data-i18n="how_kicker">How it works</span>
+      <h2 class="h2" data-i18n="how_h2">Three steps. Ten minutes. Zero jargon.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-node">1</div>
+        <h3 class="h3" data-i18n="st1_t">Tell nalla about you</h3>
+        <p data-i18n="st1_b">Six friendly questions about your goals and how you feel about risk. Takes two minutes.</p>
+        <span class="step-tag" data-i18n="st1_tag">2 minutes</span>
+      </div>
+      <div class="step reveal" style="--d:.12s">
+        <div class="step-node">2</div>
+        <h3 class="h3" data-i18n="st2_t">Get your low-risk mix</h3>
+        <p data-i18n="st2_b">We match you to a portfolio of money-market funds and short-term bonds — tuned to grow, wired to stay calm.</p>
+        <span class="step-tag" data-i18n="st2_tag">Built automatically</span>
+      </div>
+      <div class="step reveal" style="--d:.24s">
+        <div class="step-node">3</div>
+        <h3 class="h3" data-i18n="st3_t">Let it quietly grow</h3>
+        <p data-i18n="st3_b">Auto-save a little each month. Check in when you feel like it. Withdraw whenever life asks.</p>
+        <span class="step-tag" data-i18n="st3_tag">Set &amp; forget</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY ================= -->
+<section id="safety" class="section" style="padding-top:10px">
+  <div class="container">
+    <div class="safety-band reveal">
+      <div class="saf-intro">
+        <span class="kicker" data-i18n="saf_kicker">Safety</span>
+        <h2 class="h2" data-i18n="saf_h2">Low risk is a discipline, not a slogan.</h2>
+        <p class="lead" data-i18n="saf_sub">We built nalla so the worst day in your portfolio is a shrug, not a crisis.</p>
+        <div class="saf-chips">
+          <span data-i18n="saf_c1">Licensed custodians</span>
+          <span data-i18n="saf_c2">Two-factor by default</span>
+          <span data-i18n="saf_c3">Monitored around the clock</span>
+        </div>
+      </div>
+      <div class="saf-grid">
+        <div class="saf-point">
+          <div class="pic"><span class="material-symbols-rounded">shield</span></div>
+          <h3 data-i18n="sp1_t">Custody with regulated partners</h3>
+          <p data-i18n="sp1_b">Your assets sit with licensed, regulated custodians, in your name — fully separate from nalla's own accounts.</p>
+        </div>
+        <div class="saf-point">
+          <div class="pic"><span class="material-symbols-rounded">lock</span></div>
+          <h3 data-i18n="sp2_t">256-bit encryption, everywhere</h3>
+          <p data-i18n="sp2_b">Bank-grade security on every request, biometric login on the app, read-only bank connections.</p>
+        </div>
+        <div class="saf-point">
+          <div class="pic"><span class="material-symbols-rounded">block</span></div>
+          <h3 data-i18n="sp3_t">Nothing spicy, ever</h3>
+          <p data-i18n="sp3_b">No crypto, no leverage, no exotic products. If we wouldn't put our mums' savings in it, we don't offer it.</p>
+        </div>
+        <div class="saf-point">
+          <div class="pic"><span class="material-symbols-rounded">bolt</span></div>
+          <h3 data-i18n="sp4_t">Out in 1–2 business days</h3>
+          <p data-i18n="sp4_b">Withdrawals are always allowed, in any amount. Your money is never hostage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="voices" class="section" style="padding-top:20px">
+  <div class="container narrow">
+    <div class="sec-head center">
+      <span class="kicker" data-i18n="tes_kicker">Early members</span>
+      <h2 class="h2" data-i18n="tes_h2">Calm people, compound results.</h2>
+    </div>
+    <div class="carousel reveal" id="carousel">
+      <div class="car-viewport">
+        <div class="car-track" id="carTrack">
+          <figure class="slide">
+            <span class="material-symbols-rounded fill q-icon">format_quote</span>
+            <blockquote data-i18n="q1">I used to open my banking app with dread. Now I open nalla, smile for four seconds, and close it. It's boring in the best possible way.</blockquote>
+            <figcaption><span class="ava">S</span><div><b data-i18n="q1_n">Sara M.</b><span data-i18n="q1_r">Product designer</span></div></figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="material-symbols-rounded fill q-icon">format_quote</span>
+            <blockquote data-i18n="q2">Set up auto-save in two minutes and genuinely forgot about it. Six months later, I had an emergency fund for the first time in my life.</blockquote>
+            <figcaption><span class="ava">K</span><div><b data-i18n="q2_n">Khalid A.</b><span data-i18n="q2_r">Teacher</span></div></figcaption>
+          </figure>
+          <figure class="slide">
+            <span class="material-symbols-rounded fill q-icon">format_quote</span>
+            <blockquote data-i18n="q3">It's the first investment app my mother understands without me explaining anything. That's the whole review.</blockquote>
+            <figcaption><span class="ava">L</span><div><b data-i18n="q3_n">Lina H.</b><span data-i18n="q3_r">Software engineer</span></div></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="car-nav">
+        <button class="ibtn" id="prevBtn" aria-label="Previous"><span class="material-symbols-rounded icon-flip">arrow_back</span></button>
+        <div class="dots" id="carDots"></div>
+        <button class="ibtn" id="nextBtn" aria-label="Next"><span class="material-symbols-rounded icon-flip">arrow_forward</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="section" style="padding-top:20px">
+  <div class="container faq-grid">
+    <div class="faq-head reveal">
+      <span class="kicker" data-i18n="faq_kicker">FAQ</span>
+      <h2 class="h2" data-i18n="faq_h2">Fair questions.</h2>
+      <p class="lead" data-i18n="faq_sub">Everything people ask before joining — answered without the fine-print fog.</p>
+      <p class="faq-more"><span data-i18n="faq_more">Still curious? Write us anytime —</span> <a href="mailto:hello@nalla.app">hello@nalla.app</a></p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq1">Is my money actually safe with nalla?</span><span class="material-symbols-rounded">expand_more</span></button>
+        <div class="faq-a"><div><p data-i18n="fa1">Your investments are held with licensed, regulated custodians, in your name — separate from nalla's own accounts. We use 256-bit encryption, biometric login and read-only bank connections. And your portfolio is built exclusively from low-risk instruments: money-market funds and short-term government bonds.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.06s">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq2">What does "low risk" really mean here?</span><span class="material-symbols-rounded">expand_more</span></button>
+        <div class="faq-a"><div><p data-i18n="fa2">It means no crypto, no leverage, no single-stock bets. Your mix is dominated by cash-like, short-duration assets, so typical year-to-year swings stay in the low single digits. It won't make you rich overnight — it will make you steadily less anxious.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.12s">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq3">How much do I need to start?</span><span class="material-symbols-rounded">expand_more</span></button>
+        <div class="faq-a"><div><p data-i18n="fa3">$10. Seriously. Turn on round-ups and most people invest their first $100 without ever feeling it.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.18s">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq4">What does nalla cost?</span><span class="material-symbols-rounded">expand_more</span></button>
+        <div class="faq-a"><div><p data-i18n="fa4">One flat fee: 0.89% per year on your managed balance. No withdrawal fees, no trading fees, no surprise "admin" charges. If pricing ever changes, existing balances keep their terms.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.24s">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq5">Can I withdraw whenever I want?</span><span class="material-symbols-rounded">expand_more</span></button>
+        <div class="faq-a"><div><p data-i18n="fa5">Yes — any amount, any time, no penalties. Withdrawals typically land in your bank within 1–2 business days (our beta average is 26 seconds to initiate).</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="cta" class="section" style="padding-top:30px">
+  <div class="container cta-wrap reveal">
+    <h2 class="h1 cta-h" data-i18n="cta_h2">Your future self says thanks.</h2>
+    <p class="lead" data-i18n="cta_s">Join the waitlist and be first through the door when nalla opens. Free to join, one minute to sign up.</p>
+    <form id="joinForm" novalidate>
+      <input type="email" id="email" data-i18n-ph="cta_ph" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
+      <button class="btn btn-filled" type="submit" id="joinBtn"><span data-i18n="cta_btn">Get early access</span><span class="material-symbols-rounded icon-flip">arrow_forward</span></button>
+    </form>
+    <p class="field-err" id="emailErr" role="alert" hidden data-i18n="err_email">Hmm, that email doesn't look right — one more try?</p>
+    <p class="micro" data-i18n="cta_micro">Free to join · One minute · No spam, ever</p>
+    <div class="cta-ok" id="ctaOk" hidden>
+      <span class="material-symbols-rounded">check_circle</span>
+      <span data-i18n="cta_ok">You're in — check your inbox.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" data-i18n="brand_mark">n</span>
+          <span class="brand-word" data-i18n="brand_word">nalla</span>
+        </a>
+        <p class="foot-tag" data-i18n="foot_tag">Calm money for real life.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_c1">Product</h4>
+        <ul>
+          <li><a href="#why" data-i18n="nav_why">Why nalla</a></li>
+          <li><a href="#how" data-i18n="nav_how">How it works</a></li>
+          <li><a href="#safety" data-i18n="nav_safety">Safety</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_c2">Company</h4>
+        <ul>
+          <li><a href="#" class="soon" data-i18n="fc1">About</a></li>
+          <li><a href="#" class="soon" data-i18n="fc2">Careers</a></li>
+          <li><a href="#" class="soon" data-i18n="fc3">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_c3">Legal</h4>
+        <ul>
+          <li><a href="#" class="soon" data-i18n="flg1">Privacy</a></li>
+          <li><a href="#" class="soon" data-i18n="flg2">Terms</a></li>
+          <li><a href="#" class="soon" data-i18n="flg3">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-disc" data-i18n="foot_disc">nalla is a concept product. All figures shown are illustrative only and are not guarantees of future returns. All investing involves risk, including the possible loss of principal.</p>
+    <div class="foot-bottom">
+      <span data-i18n="foot_rights">© 2025 nalla. All calm reserved.</span>
+      <span data-i18n="foot_made">Built slowly, compounded daily.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status">
+  <span class="material-symbols-rounded">check_circle</span>
+  <span id="toastMsg"></span>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
