@@ -54,7 +54,7 @@ function work(){var ul=h("ul",{class:"list"});
   a.addEventListener("pointerleave",hidePv);
   a.addEventListener("focus",function(){var r=a.getBoundingClientRect();showPv(p,r.left+r.width/2,r.top+r.height/2)});a.addEventListener("blur",hidePv);
   ul.appendChild(h("li",{class:"row rv"},[a]))});
- return h("section",{id:"work"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("أعمال مختارة","Selected work")})])),ul])])}
+ return h("section",{id:"work"},[h("div",{class:"wrap"},[h("div",{class:"sh"},[h("h2",{text:X("أعمال مختارة","Selected work")})]),ul])])}
 function slide(dir){var tr=document.getElementById("tr");if(!tr)return;var c=tr.querySelector("li");var w=c?c.offsetWidth+16:340;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;tr.scrollBy({left:dir*w,behavior:rm?"auto":"smooth"})}
 function testi(){var tr=h("ul",{class:"tr",id:"tr",dir:"ltr",tabindex:"0","aria-label":X("آراء العملاء","Testimonials")});
  D.T.forEach(function(t){tr.appendChild(h("li",{class:"tc",lang:"en"},[h("span",{class:"qm","aria-hidden":"true",text:"\u201C"}),h("blockquote",null,[h("p",{text:t.q})]),h("footer",null,[h("b",{text:t.n}),h("span",{text:t.r}),h("small",{text:t.d})])]))});
