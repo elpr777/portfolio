@@ -424,32 +424,32 @@ pages.home=function(){
   '<a class="link reveal" style="--d:.12s;display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:800;color:var(--amber);text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:3px" href="#/science">'+tt('See how it works','شاهد كيف يعمل')+' '+ic('arrow','ic-flip')+'</a></div>'+
   '<div class="reveal" style="--d:.1s;position:relative;aspect-ratio:16/10;max-width:520px;width:100%;margin-inline:auto" aria-hidden="true">'+
    '<svg viewBox="0 0 400 250" style="width:100%;height:100%">'+
-   '<ellipse cx="200" cy="125" rx="150" ry="80" fill="none" stroke="rgba(18,41,59,.25)" stroke-dasharray="3 7"/>'+
-   '<ellipse cx="200" cy="125" rx="95" ry="48" fill="none" stroke="rgba(18,41,59,.35)" stroke-dasharray="2 6"/>'+
+   '<ellipse cx="200" cy="125" rx="150" ry="80" fill="none" class="orbl" stroke-dasharray="3 7"/>'+
+   '<ellipse cx="200" cy="125" rx="95" ry="48" fill="none" class="orbl" stroke-dasharray="2 6"/>'+
    '<circle cx="200" cy="125" r="26" fill="var(--amber)"/>'+
    '<circle cx="350" cy="125" r="20" fill="var(--teal)"/><circle cx="50" cy="125" r="20" fill="var(--coral)"/>'+
-   '<text x="350" y="131" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">'+(arDesc?'علم':'SCI')+'</text>'+
-   '<text x="50" y="131" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">'+(arDesc?'إيمان':'IMAN')+'</text></svg></div>'+
+   '<text x="350" y="131" text-anchor="middle" class="otx" font-size="12" font-weight="800">'+(arDesc?'علم':'SCI')+'</text>'+
+   '<text x="50" y="131" text-anchor="middle" class="otx" font-size="12" font-weight="800">'+(arDesc?'إيمان':'IMAN')+'</text></svg></div>'+
   '</div></div></section>'+
 
  '<section class="section dark-sec"><div class="container" style="max-width:820px;text-align:center">'+
   sectionLabel('The journey','الرحلة')+
-  '<h2 class="reveal" style="color:var(--paper)">'+tt('Six verbs. Every program. Every child.','ستة أفعال. كل برنامج. كل طفل.')+'</h2>'+
+  '<h2 class="reveal" style="color:var(--on-navy)">'+tt('Six verbs. Every program. Every child.','ستة أفعال. كل برنامج. كل طفل.')+'</h2>'+
   '<div class="reveal" style="--d:.1s;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px">'+
-  DATA.journey.map(function(j,i){return '<a href="#/approach" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--pill);padding:12px 20px;color:var(--paper);font-weight:800;font-size:.92rem;transition:all .3s">'+ic(j.ic)+T(j.name)+(i<5?'<span style="color:var(--amber)">'+(arDesc?'←':'→')+'</span>':'')+'</a>'}).join('')+
+  DATA.journey.map(function(j,i){return '<a href="#/approach" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--pill);padding:12px 20px;color:var(--on-navy);font-weight:800;font-size:.92rem;transition:all .3s">'+ic(j.ic)+T(j.name)+(i<5?'<span style="color:var(--amber)">'+(arDesc?'←':'→')+'</span>':'')+'</a>'}).join('')+
   '</div></div></section>'+
 
  '<section class="section"><div class="container">'+
   '<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">'+
   '<div>'+sectionLabel('Upcoming','الفعاليات القادمة')+'<h2 class="reveal">'+tt('Experiences worth marking down','تجارب تستحقّ أن تُدوَّن في التقويم')+'</h2></div>'+
   '<a class="btn btn-ghost btn-sm reveal" href="#/events">'+tt('All events','كل الفعاليات')+ic('arrow','ic-flip')+'</a></div>'+
-  '<div class="grid-3" style="margin-top:40px">'+DATA.events.slice(0,3).map(eventCard).join('')+'</div>'+
+  '<div class="grid-3 hs" style="margin-top:40px">'+DATA.events.slice(0,3).map(eventCard).join('')+'</div>'+
  '</div></section>'+
 
  '<section class="section" style="background:var(--paper-2)"><div class="container">'+
   sectionLabel('From our families','من عائلاتنا')+
   '<h2 class="reveal">'+tt('What changes at the dinner table','ما الذي يتغيّر على مائدة العشاء')+'</h2>'+
-  '<div class="grid-3" style="margin-top:40px">'+[0,1,4].map(function(i){return testimonialCard(DATA.testimonials[i],i)}).join('')+'</div>'+
+  '<div class="grid-3 hs" style="margin-top:40px">'+[0,1,4].map(function(i){return testimonialCard(DATA.testimonials[i],i)}).join('')+'</div>'+
  '</div></section>'+
 
  '<section class="section" style="padding-top:0"><div class="container">'+
@@ -464,7 +464,7 @@ pages.home=function(){
   '<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">'+
   '<div>'+sectionLabel('Journal','مجلة مَشق')+'<h2 class="reveal">'+tt('Stories & ideas','قصص وأفكار')+'</h2></div>'+
   '<a class="btn btn-ghost btn-sm reveal" href="#/stories">'+tt('Visit the journal','زُر المجلة')+ic('arrow','ic-flip')+'</a></div>'+
-  '<div class="grid-3" style="margin-top:40px">'+DATA.articles.slice(0,3).map(articleCard).join('')+'</div>'+
+  '<div class="grid-3 hs" style="margin-top:40px">'+DATA.articles.slice(0,3).map(articleCard).join('')+'</div>'+
  '</div></section>'+
  ctaBand();
 };
@@ -608,7 +608,7 @@ pages.parents=function(){
 
  '<section class="section" style="padding-top:clamp(56px,7vw,90px)"><div class="container">'+
   sectionLabel('From our families','من عائلاتنا')+
-  '<div class="grid-3" style="margin-top:36px">'+[2,3,4].map(function(i){return testimonialCard(DATA.testimonials[i],i)}).join('')+'</div>'+
+  '<div class="grid-3 hs" style="margin-top:36px">'+[2,3,4].map(function(i){return testimonialCard(DATA.testimonials[i],i)}).join('')+'</div>'+
  '</div></section>'+ctaBand();
 };
 
@@ -654,7 +654,7 @@ pages.events=function(){
   sectionLabel('Events & experiences','فعاليات وتجارب')+
   '<h1 class="reveal">'+tt('Mark the calendar','دوّنها في التقويم')+'</h1>'+
   '<p class="reveal" style="--d:.08s">'+tt('Workshops, camps, family nights and honest talks — most are open to the whole community, MASHQ member or not.','ورش ومعسكرات وأمسيات عائلية وحوارات صريحة — معظمها مفتوح للمجتمع كله، منتسبًا لم تكن.')+'</p></div>'+
- '<div class="grid-3">'+DATA.events.map(eventCard).join('')+'</div></div>'+ctaBand();
+ '<div class="grid-3 hs">'+DATA.events.map(eventCard).join('')+'</div></div>'+ctaBand();
 };
 
 pages.stories=function(){
@@ -790,6 +790,14 @@ function render(){
 function setPage(p){if(!pages[p])p='home';state.page=p;closeMenu();render();window.scrollTo(0,0)}
 
 function afterRender(){
+ $$('.hs').forEach(function(g){
+  var h=document.createElement('div');h.className='hs-hint';h.setAttribute('aria-hidden','true');
+  h.innerHTML='<span class="hs-bar"><i></i></span><span class="hs-txt">'+ic('arrow','ic-flip')+' '+(state.lang==='ar'?'اسحب لرؤية المزيد':'Swipe for more')+'</span>';
+  g.insertAdjacentElement('afterend',h);
+  var bar=h.querySelector('i');
+  function up(){var m=g.scrollWidth-g.clientWidth;var p=m>0?Math.min(1,Math.abs(g.scrollLeft)/m):0;var w=g.clientWidth/g.scrollWidth;bar.style.width=(w*100)+'%';bar.style.insetInlineStart=(p*(1-w)*100)+'%'}
+  g.addEventListener('scroll',up,{passive:true});up();
+ });
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
  $$('.reveal').forEach(function(e){io.observe(e)});
  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
