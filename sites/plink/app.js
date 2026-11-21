@@ -11,7 +11,7 @@ const T = {
     n_shop: 'تسوّق', n_size: 'مرشد المقاس', n_help: 'التوصيل والتبديل', tb_home: 'الرئيسية', tb_shop: 'تسوّق', tb_size: 'المقاس', tb_saved: 'المفضلة', tb_cart: 'السلة',
     ann: 'توصيل مجاني للطلبات من 999 ج.م · أول تبديل مقاس مجاني', ann_l: 'التفاصيل', all_ages: 'كل الأعمار',
     h1a: 'ملابس بتكبر مع ', h1b: 'ضحكتهم', h1c: '', h_p: 'من الولادة لحد 12 سنة، بقطن ناعم ومقاسات واضحة. مش متأكد من المقاس؟ المرشد يقترح لك الأنسب في ثواني.', h_c1: 'اعرف مقاس طفلك', h_c2: 'تسوّق بالسن',
-    ct1: 'دفع عند الاستلام', ct2: 'تبديل المقاس مجاناً', ct3: 'توصيل لكل المحافظات',
+    ct1: 'دفع عند الاستلام', ct2: 'تبديل المقاس مجاناً', ct3: 'توصيل لكل المحافظات', ct4: 'شحن مجاني من 999 جنيه', m_go: 'بحث', m_new: 'وصل حديثاً', m_newp: 'تسوّق الجديد', m_adv: 'مرشد المقاسات', m_advp: 'من الطول بس',
     s_age: 'تسوّق بالسن', s_age_p: 'اختار عمر طفلك وشوف المقاسات المتاحة.', s_adv: 'مقاس طفلك في ثواني', s_adv_p: 'اكتب طول طفلك ويظهر لك المقاس الأنسب من جدول مقاسات Plink. عايز دقة أعلى؟ أضف العمر والوزن في المرشد الكامل.',
     adv_go: 'اعرف المقاس', adv_full: 'المرشد الكامل', s_new: 'جديد عندنا', s_new_p: 'قطع وصلت حديثاً.', s_cat: 'تسوّق حسب النوع', s_best: 'الأكثر طلباً', all: 'عرض الكل',
     tr1: 'تبديل المقاس مجاناً', tr1p: 'أول تبديل مقاس خلال 14 يوم من الاستلام من غير رسوم (سياسة افتراضية للعرض).', tr2: 'دفع عند الاستلام', tr2p: 'ادفع كاش أو بالبطاقة عند الباب. رسوم الدفع عند الاستلام 15 ج.م.', tr3: 'قماش مريح للبشرة', tr3p: 'قطن ناعم وطبعات مائية، وبطاقة غسيل واضحة لكل قطعة.', tr4: 'مقاسات واضحة', tr4p: 'كل قطعة بالعمر والطول، ومرشد مقاس يقلل البدل.',
@@ -40,7 +40,7 @@ const T = {
     n_shop: 'Shop', n_size: 'Size advisor', n_help: 'Delivery & exchange', tb_home: 'Home', tb_shop: 'Shop', tb_size: 'Size', tb_saved: 'Saved', tb_cart: 'Cart',
     ann: 'Free delivery over EGP 999 · First size exchange is free', ann_l: 'Details', all_ages: 'All ages',
     h1a: 'Clothes that grow with every ', h1b: 'giggle', h1c: '', h_p: 'From newborn to 12 years, in soft cotton with clear sizing. Not sure of the size? The advisor suggests the best fit in seconds.', h_c1: 'Find your child’s size', h_c2: 'Shop by age',
-    ct1: 'Cash on delivery', ct2: 'Free size exchange', ct3: 'Delivery nationwide',
+    ct1: 'Cash on delivery', ct2: 'Free size exchange', ct3: 'Delivery nationwide', ct4: 'Free shipping from 999 EGP', m_go: 'Search', m_new: 'Just arrived', m_newp: 'Shop new in', m_adv: 'Size advisor', m_advp: 'From height only',
     s_age: 'Shop by age', s_age_p: 'Pick your child’s age and see the sizes in stock.', s_adv: 'Your child’s size in seconds', s_adv_p: 'Enter your child’s height and see the closest size in the Plink chart. Want more accuracy? Add age and weight in the full advisor.',
     adv_go: 'Find the size', adv_full: 'Full advisor', s_new: 'New in', s_new_p: 'Just arrived.', s_cat: 'Shop by type', s_best: 'Most loved', all: 'View all',
     tr1: 'Free size exchange', tr1p: 'Your first size exchange within 14 days of delivery costs nothing (illustrative policy).', tr2: 'Cash on delivery', tr2p: 'Pay cash or by card at the door. COD fee is EGP 15.', tr3: 'Gentle on skin', tr3p: 'Soft cotton and water-based prints, with a clear care label on every piece.', tr4: 'Clear sizing', tr4p: 'Every piece shows age and height, and the size advisor cuts exchanges.',
@@ -303,16 +303,30 @@ function miniAdv() {
 
 /* ---------- views ---------- */
 const bandOf = (id) => BANDS.find(b => b.id === id);
+function mSearch() {
+  const inp = h('input', { class: 'in', type: 'search', maxlength: 40, name: 'q', 'aria-label': t('f_q'), placeholder: t('f_q'), autocomplete: 'off' });
+  const f = h('form', { class: 'msearch', role: 'search' }, inp, h('button', { class: 'btn btn--p', type: 'submit' }, ic('search'), t('m_go')));
+  f.addEventListener('submit', (e) => { e.preventDefault(); const v = inp.value.trim().slice(0, 40); location.hash = '#/shop' + (v ? '?q=' + encodeURIComponent(v) : ''); });
+  return h('div', { class: 'msw' }, f);
+}
+function mTile(href, img, title, sub, tone) {
+  return h('a', { class: 'mtile t-' + tone, href }, h('img', { src: IMG + img + '.webp', alt: '', width: 800, height: 800, loading: 'lazy' }), h('span', { class: 'mtile__l' }, h('b', { text: title }), h('small', { text: sub }), h('i', null, ic('arrow', 'flip'))));
+}
 function vHome() {
   const news = P.filter(p => p.isNew), best = P.filter(p => p.best);
   return h('div', null,
-    h('div', { class: 'wrap hero' }, h('div', null, h('h1', { id: 'pt', tabindex: '-1' }, t('h1a'), h('em', { text: t('h1b') }), t('h1c')), h('p', { text: t('h_p') }), h('div', { class: 'hero__cta' }, h('a', { class: 'btn btn--p', href: '#/size' }, ic('ruler'), t('h_c1')), h('a', { class: 'btn btn--o', href: '#/shop' }, t('h_c2'))),
-      h('div', { class: 'chips-t' }, [['cash', 'ct1'], ['undo', 'ct2'], ['truck', 'ct3']].map(([i, k]) => h('span', null, ic(i), t(k))))),
-      h('div', { class: 'hero__img' }, h('img', { src: IMG + 'hero.webp', alt: '', width: 1600, height: 893, fetchpriority: 'high' }))),
+    h('div', { class: 'wrap mkt' },
+      h('ul', { class: 'mtrust' }, [['cash', 'ct1'], ['undo', 'ct2'], ['truck', 'ct3']].map(([i, k]) => h('li', null, ic(i), t(k)))),
+      mSearch(),
+      h('div', { class: 'mgrid' },
+        h('div', { class: 'mmain' }, h('div', { class: 'mmain__t' }, h('h1', { id: 'pt', tabindex: '-1' }, t('h1a'), h('em', { text: t('h1b') }), t('h1c')), h('p', { text: t('h_p') }), h('div', { class: 'hero__cta' }, h('a', { class: 'btn btn--p', href: '#/size' }, ic('ruler'), t('h_c1')), h('a', { class: 'btn btn--o', href: '#/shop' }, t('h_c2')))), h('div', { class: 'mmain__i' }, h('img', { src: IMG + 'hero.webp', alt: '', width: 1600, height: 893, fetchpriority: 'high' }))),
+        h('div', { class: 'mside' },
+          mTile('#/shop?sort=n', 'p-party-dress', t('m_new'), t('m_newp'), 'sun'),
+          mTile('#/size', 'size-measure', t('m_adv'), t('m_advp'), 'sky'))),
+      h('nav', { class: 'mcats', 'aria-label': t('s_cat') }, CATS.map(c => h('a', { href: '#/shop?cat=' + c.id }, h('span', { class: 'mc' }, h('img', { src: IMG + c.img + '.webp', alt: '', width: 160, height: 160 })), h('b', { text: pick(c) }))))),
     h('section', { class: 'wrap sec', style: 'padding-block-start:1rem' }, head(t('s_age'), t('s_age_p')), h('div', { class: 'ages' }, BANDS.map(b => h('a', { class: 'age t-' + b.tone, href: '#/shop?age=' + b.id, 'aria-label': `${pick(b)} · ${pick({ ar: b.sar, en: b.sen })}` }, h('b', null, b.big, h('small', { text: pick({ ar: b.uar, en: b.uen }) })), h('span', { text: pick(b) }), ic('arrow', 'flip'))))),
     h('section', { class: 'band' }, h('div', { class: 'wrap sec adv-band' }, h('img', { src: IMG + 'size-measure.webp', alt: '', width: 1200, height: 805, loading: 'lazy' }), h('div', null, h('span', { class: 'badge badge--ai' }, ic('spark'), t('a_t')), h('h2', { style: 'font-size:clamp(1.6rem,3.2vw,2.4rem);margin-block:.7rem .5rem', text: t('s_adv') }), h('p', { style: 'color:var(--mut)', text: t('s_adv_p') }), miniAdv()))),
     h('section', { class: 'wrap sec' }, head(t('s_new'), t('s_new_p'), '#/shop?sort=n'), h('div', { class: 'hrail', role: 'region', 'aria-label': t('s_new'), tabindex: '0' }, news.map(pcard))),
-    h('section', { class: 'wrap', style: 'padding-block-end:clamp(2rem,5vw,4.5rem)' }, head(t('s_cat')), h('div', { class: 'cats' }, CATS.map(c => h('a', { class: 'cat', href: '#/shop?cat=' + c.id }, h('img', { src: IMG + c.img + '.webp', alt: '', width: 800, height: 800, loading: 'lazy' }), h('span', null, pick(c), ic('arrow', 'flip')))))),
     h('section', { class: 'band' }, h('div', { class: 'wrap sec' }, head(t('s_best'), null, '#/shop'), h('div', { class: 'grid' }, best.map(pcard)))),
     h('section', { class: 'wrap sec' }, h('ul', { class: 'trust' }, [['undo', 'tr1'], ['cash', 'tr2'], ['leaf', 'tr3'], ['ruler', 'tr4']].map(([i, k]) => h('li', null, ic(i), h('h3', { text: t(k) }), h('p', { text: t(k + 'p') }))))),
     h('section', { class: 'band' }, h('div', { class: 'wrap sec' }, head(t('s_rev'), t('s_rev_p')), h('div', { class: 'cards3' }, REVIEWS.map(r => { const p = prod(r.p); return h('article', { class: 'box' }, h('div', { class: 'stars', role: 'img', 'aria-label': `${r.r} / 5` }, '★'.repeat(r.r) + '☆'.repeat(5 - r.r)), h('p', { text: pk2(r.t) }), fitMeter(r.k), h('p', { class: 'note', text: `${pk2(r.n)} · ${pk2(r.c)} · ${t('on')} ${pick(p)}` })); })))),
