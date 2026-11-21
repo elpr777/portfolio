@@ -457,3 +457,15 @@ footer.ft .fli{gap:.2rem}
 .cend{margin-top:clamp(2rem,5vw,3rem)}
 @media(max-width:900px){.facts{grid-template-columns:repeat(2,1fr)}.cdecs{grid-template-columns:1fr}.csec{grid-template-columns:1fr}}
 @media(max-width:560px){.cs .btns{flex-direction:column;align-items:stretch}.cs .btns .btn{justify-content:center}}
+
+/* package */
+.pack{background:#D4FF3A;color:#0A0A0A}
+.pack h2{margin:0;font:400 clamp(2rem,5.5vw,4rem)/1.1 var(--fd);letter-spacing:-.02em;max-inline-size:20ch;text-transform:none}
+[lang=ar] .pack h2{font-family:var(--fb);font-weight:600;line-height:1.3;letter-spacing:0;max-inline-size:none}
+.pks{margin:.9rem 0 0;font-size:clamp(1rem,1.6vw,1.2rem);color:#2A2E12;max-inline-size:52ch}
+.pkl{list-style:none;margin:clamp(1.75rem,4vw,2.75rem) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem 2rem}
+.pkl li{display:flex;align-items:center;gap:.8rem;padding-block:.85rem;border-bottom:1px solid rgba(10,10,10,.22);font-size:clamp(1rem,1.5vw,1.125rem);font-weight:500;line-height:1.4}
+.pk{flex:none;display:grid;place-items:center;inline-size:1.625rem;block-size:1.625rem;border-radius:6px;background:#0A0A0A;color:#D4FF3A}
+.pk svg{inline-size:1rem;block-size:1rem}
+@media(max-width:900px){.pkl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.pkl{grid-template-columns:1fr;gap:0}}
