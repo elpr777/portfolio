@@ -31,7 +31,7 @@ function status(){var on=cairoOpen();var el=h("span",{class:"stat","data-s":on?"
  function paint(){var o=cairoOpen();el.setAttribute("data-s",o?"on":"off");el.lastChild.textContent=(o?X("أونلاين الآن","Online now"):X("أوفلاين الآن","Offline now"))}
  paint();var t=setInterval(function(){if(!el.isConnected){clearInterval(t);return}paint()},60000);return el}
 function pitch(){return h("div",{class:"pitch"},[
-  h("h2",{class:"hl",text:X("الموقع بيفرق.\nعشان تبيع أحسن.","Website matters\nfor better sales.")}),
+  h("h2",{class:"hl",text:X("الموقع بيفرق.\nعشان تبيع أحسن.","Your website matters\nfor selling better.")}),
   h("p",{class:"sb",text:X("ببني مواقع وهويات بتقنع الزائر وتحوّله لعميل من أول شاشة.","Build websites and brands that win trust on the first screen and turn visitors into customers.")}),
   h("div",{class:"pc"},[ext(CAL,"hbtn",[h("span",{text:X("احجز مكالمة \u2197","Book a call \u2197")})])])])}
 function hero(){var n=L==="ar"?["محمد","سيد"]:["Muhammad","Sayed"];
