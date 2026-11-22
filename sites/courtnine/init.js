@@ -1,0 +1,1 @@
+(function(){try{var t=localStorage.getItem('court9-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}try{var l=localStorage.getItem('court9-lang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl'}}catch(e){}})();
