@@ -473,3 +473,12 @@ footer.ft .fli{gap:.2rem}
 /* v8: strip text uses plain theme ink (no background-clip trick, which kept the light-mode colour on some phones after switching theme) */
 .ind li,[data-theme=dark] .ind li{color:var(--ink);-webkit-text-fill-color:var(--ink);background:none;-webkit-background-clip:border-box;background-clip:border-box}
 .ind li::after,[data-theme=dark] .ind li::after{border-color:var(--ink)}
+
+/* CTA after the stats */
+.ctarow{display:flex;justify-content:center;max-inline-size:56rem;margin:0 auto}
+.ctab{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-block-size:3.4rem;padding:.8rem 2rem;border-radius:99px;background:var(--lem);color:var(--on-lem);font:700 1.05rem/1.2 var(--fb);text-decoration:none;box-shadow:0 0 0 1px rgba(10,10,10,.12);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.ctab i{font-style:normal}
+.ctab:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(212,255,58,.8)}
+.ctab:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+[data-theme=dark] .ctab:focus-visible{outline-color:var(--lem)}
+@media(max-width:640px){.ctab{inline-size:100%}}
